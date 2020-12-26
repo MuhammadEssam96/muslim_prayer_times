@@ -1,0 +1,5 @@
+nclude: package:lint/analysis_options.yaml
+
+analyzer:
+  errors:
+    avoid_print: ignore
