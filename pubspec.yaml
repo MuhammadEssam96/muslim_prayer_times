@@ -1,0 +1,19 @@
+name: muslim_prayer_times
+description: A muslim prayer times app that displays organised prayer times and qibla directions.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: "2.10.4"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
