@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:get/get.dart';
 import 'package:introduction_screen/introduction_screen.dart';
-import 'package:muslim_prayer_times/ui/screens/home_screen.dart';
+import 'package:muslim_prayer_times/ui/screens/configs_screen.dart';
 import 'package:muslim_prayer_times/ui/values/colors.dart';
 
 class IntroScreen extends StatelessWidget {
@@ -66,7 +66,7 @@ class IntroScreen extends StatelessWidget {
       ),
       onDone: () async {
         await Hive.box("AppPreferences").put("firstOpen", false);
-        Get.off(HomeScreen());
+        Get.off(ConfigsScreen());
       },
     );
   }
