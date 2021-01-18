@@ -9,6 +9,4 @@ class ConfigFormController extends GetxController {
   final Rx<bool> _isLocationSet = Rx<bool>();
   bool get isLocationSet => _isLocationSet.value ?? false;
   set isLocationSet(bool isLocationSet) => _isLocationSet.value = isLocationSet;
-  
-
 }

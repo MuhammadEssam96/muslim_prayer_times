@@ -17,11 +17,11 @@ class ConfigAdapter extends TypeAdapter<Config> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return Config(
-      fields[0] as int,
-      fields[1] as Location,
-      fields[2] as String,
-      fields[3] as String,
-      fields[4] as String,
+      id: fields[0] as int,
+      location: fields[1] as Location,
+      method: fields[2] as String,
+      timeZoneString: fields[3] as String,
+      school: fields[4] as String,
     );
   }
 

@@ -8,7 +8,7 @@ import 'package:muslim_prayer_times/ui/values/colors.dart';
 class IntroScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    const pageDecoration = const PageDecoration(
+    const pageDecoration = PageDecoration(
       titleTextStyle: TextStyle(
         fontSize: 28.0,
         fontWeight: FontWeight.w700
@@ -16,7 +16,7 @@ class IntroScreen extends StatelessWidget {
       bodyTextStyle: TextStyle(fontSize: 19.0),
       descriptionPadding: EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 16.0),
       pageColor: AppColors.primaryColorLight,
-      imagePadding: const EdgeInsets.only(top: 24),
+      imagePadding: EdgeInsets.only(top: 24),
     );
 
     return IntroductionScreen(
@@ -53,7 +53,6 @@ class IntroScreen extends StatelessWidget {
       done: const Text("Done"),
       next: const Icon(Icons.arrow_forward),
       skip: const Text("Skip"),
-      showNextButton: true,
       showSkipButton: true,
       dotsDecorator: const DotsDecorator(
         size: Size(10.0, 10.0),

@@ -20,11 +20,11 @@ class Config {
   @HiveField(4)
   final String school;
 
-  const Config(
+  const Config({
     this.id,
     this.location,
     this.method,
     this.timeZoneString,
     this.school
-  );
+  });
 }

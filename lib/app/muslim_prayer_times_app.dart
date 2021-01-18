@@ -3,7 +3,7 @@ import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:muslim_prayer_times/ui/screens/home_screen.dart';
 import 'package:muslim_prayer_times/ui/screens/intro_screen.dart';
 import 'package:muslim_prayer_times/ui/screens/splash_screen.dart';
-import 'package:muslim_prayer_times/ui/values/themes.dart';
+import 'package:muslim_prayer_times/ui/values/themes.dart' as app_themes;
 
 class MuslimPrayerTimesApp extends StatelessWidget {
   @override
@@ -11,7 +11,7 @@ class MuslimPrayerTimesApp extends StatelessWidget {
     return GetMaterialApp(
       title: "Muslim Prayer Times",
       debugShowCheckedModeBanner: false,
-      theme: AppThemes.lightThemeData,
+      theme: app_themes.lightThemeData,
       home: SplashScreen(),
       routes: {
         "/Home" : (context) => HomeScreen(),

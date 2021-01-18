@@ -11,13 +11,13 @@ import 'package:muslim_prayer_times/ui/values/styles.dart';
 class SplashScreen extends StatelessWidget {
   void checkIfFirstOpen(){
     Future.delayed(
-      Duration(seconds: 3),
+      const Duration(seconds: 3),
       () async {
-        bool firstOpen = await Hive.box("AppPreferences").get("firstOpen", defaultValue: true);
+        final bool firstOpen = await Hive.box("AppPreferences").get("firstOpen", defaultValue: true) as bool;
         if (firstOpen) {
           Get.off(IntroScreen());
         } else {
-          bool configsExist = await Hive.box("AppPreferences").get("configsExist", defaultValue: false);
+          final bool configsExist = await Hive.box("AppPreferences").get("configsExist", defaultValue: false) as bool;
           if (configsExist) {
             Get.off(HomeScreen());
           } else {
@@ -45,7 +45,7 @@ class SplashScreen extends StatelessWidget {
                 width: MediaQuery.of(context).size.width * 0.50,
               ),
             ),
-            Text(
+            const Text(
               "Muslim Prayer Times",
               style: TextStyle(
                 fontFamily: "Pacifico",
