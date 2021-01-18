@@ -18,10 +18,15 @@ dependencies:
 
   introduction_screen: ^1.0.9
 
+  location: ^3.2.1
+  location_permissions: ^3.0.0+1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
   lint: ^1.3.0
+  hive_generator: ^0.8.2
+  build_runner: ^1.10.12
 
 flutter:
   uses-material-design: true
@@ -31,6 +36,9 @@ flutter:
     - assets/images/clock.png
     - assets/images/compass.png
     - assets/images/loading.png
+    - assets/images/ui-element-150.png
+    - assets/images/map.png
+    - assets/images/location-pin2.png
 
   fonts:
     - family: Pacifico
