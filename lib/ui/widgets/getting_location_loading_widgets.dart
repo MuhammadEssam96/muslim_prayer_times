@@ -13,13 +13,13 @@ class GettingLocationLoadingWidgets extends StatelessWidget {
               "Getting location..",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 16
-              ),
-            ),
+                fontSize: 16.0
+              )
+            )
           ),
           CircularProgressIndicator(strokeWidth: 5.0)
-        ],
-      ),
+        ]
+      )
     );
   }
 }

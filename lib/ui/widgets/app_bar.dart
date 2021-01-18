@@ -12,7 +12,7 @@ class DefaultAppBar {
         style: const TextStyle(color: AppColors.primaryColorDark),
       ),
       centerTitle: true,
-      iconTheme: const IconThemeData(color: AppColors.primaryColorDark),
+      iconTheme: const IconThemeData(color: AppColors.primaryColorDark)
     );
   }
 }

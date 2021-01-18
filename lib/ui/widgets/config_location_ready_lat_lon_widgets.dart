@@ -19,44 +19,36 @@ class ConfigLocationReadyLatLonWidgets extends StatelessWidget {
           children: [
             const Text(
               "Latitude:",
-              style: TextStyle(
-                fontSize: 20,
-              ),
+              style: TextStyle(fontSize: 20.0)
             ),
             Text(
               location.latitude.toString(),
-              style: const TextStyle(
-                fontSize: 20,
-              ),
-            ),
-          ],
+              style: const TextStyle(fontSize: 20.0)
+            )
+          ]
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             const Text(
               "Longitude:",
-              style: TextStyle(
-                fontSize: 20,
-              ),
+              style: TextStyle(fontSize: 20.0)
             ),
             Text(
               location.longitude.toString(),
-              style: const TextStyle(
-                fontSize: 20,
-              ),
-            ),
-          ],
+              style: const TextStyle(fontSize: 20.0)
+            )
+          ]
         ),
-        const SizedBox(height: 16.0,),
+        const SizedBox(height: 16.0),
         DefaultMaterialButton(
           text: "Pick another location",
           onPressed: () {
             configFormController.location = Location(city: "", country: "");
             configFormController.isLocationSet = false;
-          },
+          }
         )
-      ],
+      ]
     );
   }
 }

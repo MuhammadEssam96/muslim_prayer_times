@@ -10,23 +10,21 @@ class AskUserForLocationWidgets extends StatelessWidget {
       children: [
         DefaultMaterialButton(
           text: "Get Location Automatically",
-          onPressed: () {
-            Get.to(SetLocationAutomaticallyScreen());
-          },
+          onPressed: () => Get.to(SetLocationAutomaticallyScreen())
         ),
         const SizedBox(height: 16.0),
         const Text(
           "Or",
-          style: TextStyle(fontSize: 20.0),
+          style: TextStyle(fontSize: 20.0)
         ),
         const SizedBox(height: 16.0),
         DefaultMaterialButton(
           text: "Enter Location Manually",
           onPressed: () {
 
-          },
-        ),
-      ],
+          }
+        )
+      ]
     );
   }
 }

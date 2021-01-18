@@ -42,20 +42,20 @@ class SplashScreen extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 16.0),
               child: Image.asset(
                 "assets/images/kaaba_logo_brown.png",
-                width: MediaQuery.of(context).size.width * 0.50,
+                width: Get.size.width * 0.50,
               ),
             ),
             const Text(
               "Muslim Prayer Times",
               style: TextStyle(
                 fontFamily: "Pacifico",
-                fontSize: 27,
+                fontSize: 27.0,
                 color: AppColors.primaryColorDark
-              ),
+              )
             )
-          ],
-        ),
-      ),
+          ]
+        )
+      )
     );
   }
 }

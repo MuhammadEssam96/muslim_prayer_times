@@ -28,9 +28,7 @@ class SetLocationAutomaticallyScreen extends StatelessWidget {
                   return RequestLocationPermissionWidgets(controller.permissionStatus);
                   break;
                 case PermissionStatus.granted:
-                  if (controller.locationIsLoading){
-                    return GettingLocationLoadingWidgets();
-                  }
+                  if (controller.locationIsLoading) return GettingLocationLoadingWidgets();
                   if (controller.locationData != null) {
                     return ConfirmLocationLatAndLonWidgets(controller.locationData);
                   } else {
@@ -38,10 +36,10 @@ class SetLocationAutomaticallyScreen extends StatelessWidget {
                   }
               }
               return GettingLocationLoadingWidgets();
-            },
-          ),
-        ),
-      ),
+            }
+          )
+        )
+      )
     );
   }
 }

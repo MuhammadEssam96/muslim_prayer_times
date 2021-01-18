@@ -27,8 +27,8 @@ class ConfigsScreen extends StatelessWidget {
                       padding: const EdgeInsets.all(8.0),
                       child: Image.asset(
                         "assets/images/ui-element-150.png",
-                        width: Get.size.width * 0.66,
-                      ),
+                        width: Get.size.width * 0.66
+                      )
                     ),
                     const Padding(
                       padding: EdgeInsets.all(8.0),
@@ -36,9 +36,9 @@ class ConfigsScreen extends StatelessWidget {
                         "No configurations are saved yet..",
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          fontSize: 22,
+                          fontSize: 22.0,
                           fontWeight: FontWeight.bold
-                        ),
+                        )
                       ),
                     ),
                     const Padding(
@@ -46,8 +46,8 @@ class ConfigsScreen extends StatelessWidget {
                       child: Text(
                         "You can add new configurations to store your preferred location, prayer times calculation methods and other options!",
                         textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 18),
-                      ),
+                        style: TextStyle(fontSize: 18.0)
+                      )
                     ),
                     Padding(
                       padding: const EdgeInsets.all(24.0),
@@ -55,12 +55,12 @@ class ConfigsScreen extends StatelessWidget {
                         text: "Add new configuration",
                         onPressed: () {
                           Get.to(AddConfigScreen());
-                        },
+                        }
                       )
-                    ),
-                  ],
-                ),
-              ),
+                    )
+                  ]
+                )
+              )
             );
           } else {
             return Center(
@@ -68,13 +68,13 @@ class ConfigsScreen extends StatelessWidget {
                 children: const [
                   Text("Configs"),
                   Text("Are"),
-                  Text("NOT Empty"),
-                ],
-              ),
+                  Text("NOT Empty")
+                ]
+              )
             );
           }
-        },
-      ),
+        }
+      )
     );
   }
 }

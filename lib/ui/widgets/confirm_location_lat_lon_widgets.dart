@@ -17,54 +17,44 @@ class ConfirmLocationLatAndLonWidgets extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Image.asset(
-          "assets/images/location-pin2.png"
-        ),
+        Image.asset("assets/images/location-pin2.png"),
         const Padding(
           padding: EdgeInsets.all(8.0),
           child: Text(
             "Confirm location:",
             style: TextStyle(
-              fontSize: 22,
+              fontSize: 22.0,
               fontWeight: FontWeight.bold
-            ),
-          ),
+            )
+          )
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             const Text(
               "Latitude:",
-              style: TextStyle(
-                fontSize: 20,
-              ),
+              style: TextStyle(fontSize: 20.0)
             ),
             Text(
               locationData.latitude.toString(),
-              style: const TextStyle(
-                fontSize: 20,
-              ),
-            ),
-          ],
+              style: const TextStyle(fontSize: 20.0)
+            )
+          ]
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             const Text(
               "Longitude:",
-              style: TextStyle(
-                fontSize: 20,
-              ),
+              style: TextStyle(fontSize: 20.0)
             ),
             Text(
               locationData.longitude.toString(),
-              style: const TextStyle(
-                fontSize: 20,
-              ),
-            ),
-          ],
+              style: const TextStyle(fontSize: 20.0)
+            )
+          ]
         ),
-        const SizedBox(height: 36),
+        const SizedBox(height: 36.0),
         DefaultMaterialButton(
           text: "Save",
           onPressed: () {
@@ -72,19 +62,17 @@ class ConfirmLocationLatAndLonWidgets extends StatelessWidget {
             configFormController.location = location;
             configFormController.isLocationSet = true;
             Get.back();
-          },
+          }
         ),
-
+        const SizedBox(height: 8.0),
         FlatButton(
           height: 48,
           minWidth: Get.width * 0.50,
-          onPressed: () async {
-            await Get.find<LocationController>().getLocation();
-          },
+          onPressed: () async => Get.find<LocationController>().getLocation(),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(48)),
           child: const Text("Refresh"),
         )
-      ],
+      ]
     );
   }
 }

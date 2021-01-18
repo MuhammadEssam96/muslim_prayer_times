@@ -27,23 +27,23 @@ class AddConfigScreen extends StatelessWidget {
                       const Text(
                         "Location: ",
                         style: TextStyle(
-                          fontSize: 18
+                          fontSize: 18.0
                         )
                       ),
-                      const SizedBox(height: 16.0,),
+                      const SizedBox(height: 16.0),
                       if (controller.isLocationSet) ConfigLocationReadyLatLonWidgets(controller.location) else AskUserForLocationWidgets(),
                       const SizedBox(height: 16.0),
                       const Divider(
                         color: AppColors.primaryColorDark,
-                        thickness: 2,
+                        thickness: 2
                       )
-                    ],
+                    ]
                   );
                 }
-              ),
-            ),
-          ),
-        ),
+              )
+            )
+          )
+        )
       )
     );
   }

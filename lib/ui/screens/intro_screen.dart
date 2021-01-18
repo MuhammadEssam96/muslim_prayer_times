@@ -16,7 +16,7 @@ class IntroScreen extends StatelessWidget {
       bodyTextStyle: TextStyle(fontSize: 19.0),
       descriptionPadding: EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 16.0),
       pageColor: AppColors.primaryColorLight,
-      imagePadding: EdgeInsets.only(top: 24),
+      imagePadding: EdgeInsets.only(top: 24.0)
     );
 
     return IntroductionScreen(
@@ -27,7 +27,7 @@ class IntroScreen extends StatelessWidget {
           body: "Get updated and detailed prayer times based on your current or custom location!",
           image: Image.asset(
             "assets/images/clock.png",
-            width: MediaQuery.of(context).size.width * 0.50,
+            width: Get.size.width * 0.50
           ),
           decoration: pageDecoration
         ),
@@ -36,7 +36,7 @@ class IntroScreen extends StatelessWidget {
           body: "Get exact Qibla direction based on your current or custom location!",
           image: Image.asset(
             "assets/images/compass.png",
-            width: MediaQuery.of(context).size.width * 0.50,
+            width: Get.size.width * 0.50,
           ),
           decoration: pageDecoration
         ),
@@ -45,7 +45,7 @@ class IntroScreen extends StatelessWidget {
           body: "You can also set custom configurations and add multiple locations, calculation methods...etc",
           image: Image.asset(
             "assets/images/loading.png",
-            width: MediaQuery.of(context).size.width * 0.50,
+            width: Get.size.width * 0.50,
           ),
           decoration: pageDecoration
         )
@@ -60,13 +60,13 @@ class IntroScreen extends StatelessWidget {
         activeColor: AppColors.primaryColorDark,
         activeSize: Size(22.0, 10.0),
         activeShape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(25.0)),
-        ),
+          borderRadius: BorderRadius.all(Radius.circular(25.0))
+        )
       ),
       onDone: () async {
         await Hive.box("AppPreferences").put("firstOpen", false);
         Get.off(ConfigsScreen());
-      },
+      }
     );
   }
 }
