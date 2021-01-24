@@ -1,21 +1,23 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:location/location.dart' show LocationData;
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:muslim_prayer_times/controllers/location_controller.dart';
 import 'package:muslim_prayer_times/data/models/location_model.dart';
 import 'package:muslim_prayer_times/controllers/config_form_controller.dart';
 import 'package:muslim_prayer_times/ui/widgets/material_button.dart';
 
-class ConfirmLocationLatAndLonWidgets extends StatelessWidget {
-  final LocationData locationData;
+class ConfirmLocationWidgets extends StatelessWidget {
+  final Location location;
+  final Completer<GoogleMapController> _controller = Completer();
 
-  const ConfirmLocationLatAndLonWidgets(this.locationData);
+  ConfirmLocationWidgets(this.location);
 
   @override
   Widget build(BuildContext context) {
     final configFormController = Get.find<ConfigFormController>();
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Image.asset("assets/images/location-pin2.png"),
         const Padding(
@@ -28,6 +30,40 @@ class ConfirmLocationLatAndLonWidgets extends StatelessWidget {
             )
           )
         ),
+        SizedBox(
+          width: Get.size.width,
+          height: Get.size.width * 0.66,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(32),
+            child: GoogleMap(
+              padding: const EdgeInsets.all(8.0),
+              myLocationEnabled: true,
+              initialCameraPosition: CameraPosition(
+                target: LatLng(
+                  double.parse(location.latitude),
+                  double.parse(location.longitude)
+                ),
+                zoom: 15
+              ),
+              onMapCreated: (GoogleMapController controller) => _controller.complete(controller),
+            ),
+          ),
+        ),
+        const SizedBox(height: 16.0),
+        Text(
+          location.city,
+          style: const TextStyle(
+            fontSize: 20.0,
+            fontWeight: FontWeight.bold
+          )
+        ),
+        Text(
+          location.country,
+          style: const TextStyle(
+            fontSize: 20.0,
+            fontWeight: FontWeight.bold
+          )
+        ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -36,7 +72,7 @@ class ConfirmLocationLatAndLonWidgets extends StatelessWidget {
               style: TextStyle(fontSize: 20.0)
             ),
             Text(
-              locationData.latitude.toString(),
+              location.latitude,
               style: const TextStyle(fontSize: 20.0)
             )
           ]
@@ -49,7 +85,7 @@ class ConfirmLocationLatAndLonWidgets extends StatelessWidget {
               style: TextStyle(fontSize: 20.0)
             ),
             Text(
-              locationData.longitude.toString(),
+              location.longitude,
               style: const TextStyle(fontSize: 20.0)
             )
           ]
@@ -58,7 +94,6 @@ class ConfirmLocationLatAndLonWidgets extends StatelessWidget {
         DefaultMaterialButton(
           text: "Save",
           onPressed: () {
-            final Location location = Location.latAndLong(latitude: locationData.latitude.toString(), longitude: locationData.longitude.toString());
             configFormController.location = location;
             configFormController.isLocationSet = true;
             Get.back();
@@ -68,8 +103,8 @@ class ConfirmLocationLatAndLonWidgets extends StatelessWidget {
         FlatButton(
           height: 48,
           minWidth: Get.width * 0.50,
-          onPressed: () async => Get.find<LocationController>().getLocation(),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(48)),
+          onPressed: () async => Get.find<LocationController>().getLocation(),
           child: const Text("Refresh"),
         )
       ]

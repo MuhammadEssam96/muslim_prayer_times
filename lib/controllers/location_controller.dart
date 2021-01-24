@@ -1,6 +1,9 @@
+import 'package:geocode/geocode.dart';
 import 'package:get/get.dart';
 import 'package:location/location.dart' show LocationData;
 import 'package:location_permissions/location_permissions.dart';
+import 'package:muslim_prayer_times/data/models/location_model.dart';
+import 'package:muslim_prayer_times/services/geocode_service.dart';
 import 'package:muslim_prayer_times/services/location_permission_service.dart';
 import 'package:muslim_prayer_times/services/location_service.dart';
 
@@ -12,6 +15,10 @@ class LocationController extends GetxController {
   final Rx<LocationData> _locationData = Rx<LocationData>();
   LocationData get locationData => _locationData.value;
   set locationData(LocationData locationData) => _locationData.value = locationData;
+
+  final Rx<Location> _location = Rx<Location>();
+  Location get location => _location.value ?? Location(city: "", country: "", latitude: "", longitude: "");
+  set location(Location location) => _location.value = location;
 
   final Rx<bool> _locationIsLoading = Rx<bool>();
   bool get locationIsLoading => _locationIsLoading.value ?? false;
@@ -41,6 +48,8 @@ class LocationController extends GetxController {
       const Duration(seconds: 3),
       () async {
         locationData = await LocationService.getLocation();
+        final Address address = await GeoCodeService.reverseGeocoding(latitude: locationData.latitude, longitude: locationData.longitude);
+        location = Location(city: address.city, country: address.countryName, latitude: locationData.latitude.toString(), longitude: locationData.longitude.toString());
       }
     );
     locationIsLoading = false;

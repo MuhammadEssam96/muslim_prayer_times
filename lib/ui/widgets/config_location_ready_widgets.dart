@@ -2,18 +2,33 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:muslim_prayer_times/controllers/config_form_controller.dart';
 import 'package:muslim_prayer_times/data/models/location_model.dart';
+import 'package:muslim_prayer_times/ui/screens/get_location_screen.dart';
 import 'package:muslim_prayer_times/ui/widgets/material_button.dart';
 
-class ConfigLocationReadyLatLonWidgets extends StatelessWidget {
+class ConfigLocationReadyWidgets extends StatelessWidget {
   final Location location;
 
-  const ConfigLocationReadyLatLonWidgets(this.location);
+  const ConfigLocationReadyWidgets(this.location);
 
   @override
   Widget build(BuildContext context) {
     final configFormController = Get.find<ConfigFormController>();
     return Column(
       children: [
+        Text(
+          location.city,
+          style: const TextStyle(
+            fontSize: 20.0,
+            fontWeight: FontWeight.bold
+          )
+        ),
+        Text(
+          location.country,
+          style: const TextStyle(
+            fontSize: 20.0,
+            fontWeight: FontWeight.bold
+          )
+        ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -22,7 +37,7 @@ class ConfigLocationReadyLatLonWidgets extends StatelessWidget {
               style: TextStyle(fontSize: 20.0)
             ),
             Text(
-              location.latitude.toString(),
+              location.latitude,
               style: const TextStyle(fontSize: 20.0)
             )
           ]
@@ -35,7 +50,7 @@ class ConfigLocationReadyLatLonWidgets extends StatelessWidget {
               style: TextStyle(fontSize: 20.0)
             ),
             Text(
-              location.longitude.toString(),
+              location.longitude,
               style: const TextStyle(fontSize: 20.0)
             )
           ]
@@ -44,8 +59,9 @@ class ConfigLocationReadyLatLonWidgets extends StatelessWidget {
         DefaultMaterialButton(
           text: "Pick another location",
           onPressed: () {
-            configFormController.location = Location(city: "", country: "");
+            configFormController.location = Location(city: "", country: "", longitude: "", latitude: "");
             configFormController.isLocationSet = false;
+            Get.to(GetLocationScreen());
           }
         )
       ]
