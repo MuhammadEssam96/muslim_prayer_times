@@ -12,19 +12,66 @@ class Config {
   final Location location;
 
   @HiveField(2)
-  final String method;
+  final ConfigMethod method;
 
   @HiveField(3)
-  final String timeZoneString;
-
-  @HiveField(4)
-  final String school;
+  final ConfigSchool school;
 
   const Config({
     this.id,
     this.location,
     this.method,
-    this.timeZoneString,
     this.school
   });
+}
+
+@HiveType(typeId: 2)
+enum ConfigSchool {
+  @HiveField(0)
+  shafi,
+
+  @HiveField(1)
+  hanafi
+}
+
+@HiveType(typeId: 3)
+enum ConfigMethod {
+  @HiveField(0)
+  universityOfIslamicSciencesKarachi,
+
+  @HiveField(1)
+  islamicSocietyOfNorthAmerica,
+
+  @HiveField(2)
+  muslimWorldLeague,
+
+  @HiveField(3)
+  ummAlQuraUniversityMakkah,
+
+  @HiveField(4)
+  egyptianGeneralAuthorityOfSurvey,
+
+  @HiveField(5)
+  instituteOfGeophysicsUniversityOfTehran,
+
+  @HiveField(6)
+  gulfRegion,
+
+  @HiveField(7)
+  kuwait,
+
+  @HiveField(8)
+  qatar,
+
+  @HiveField(9)
+  majlisUgamaIslamSingapuraSingapore,
+
+  @HiveField(10)
+  unionOrganizationIslamicDeFrance,
+
+  @HiveField(11)
+  diyanetIsleriBaskanligiTurkey,
+
+  @HiveField(12)
+  spiritualAdministrationOfMuslimsOfRussia
 }

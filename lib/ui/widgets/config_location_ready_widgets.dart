@@ -13,58 +13,66 @@ class ConfigLocationReadyWidgets extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final configFormController = Get.find<ConfigFormController>();
-    return Column(
-      children: [
-        Text(
-          location.city,
-          style: const TextStyle(
-            fontSize: 20.0,
-            fontWeight: FontWeight.bold
-          )
-        ),
-        Text(
-          location.country,
-          style: const TextStyle(
-            fontSize: 20.0,
-            fontWeight: FontWeight.bold
-          )
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            const Text(
-              "Latitude:",
-              style: TextStyle(fontSize: 20.0)
-            ),
-            Text(
-              location.latitude,
-              style: const TextStyle(fontSize: 20.0)
+    return Expanded(
+      child: Column(
+        children: [
+          Text(
+            location.city,
+            style: const TextStyle(
+              fontSize: 20.0,
+              fontWeight: FontWeight.bold
             )
-          ]
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            const Text(
-              "Longitude:",
-              style: TextStyle(fontSize: 20.0)
-            ),
-            Text(
-              location.longitude,
-              style: const TextStyle(fontSize: 20.0)
+          ),
+          Text(
+            location.country,
+            style: const TextStyle(
+              fontSize: 20.0,
+              fontWeight: FontWeight.bold
             )
-          ]
-        ),
-        const SizedBox(height: 16.0),
-        DefaultMaterialButton(
-          text: "Pick another location",
-          onPressed: () {
-            configFormController.location = Location(city: "", country: "", longitude: "", latitude: "");
-            configFormController.isLocationSet = false;
-            Get.to(GetLocationScreen());
-          }
-        )
-      ]
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text(
+                  "Latitude: ",
+                  style: TextStyle(fontSize: 20.0)
+                ),
+                Text(
+                  location.latitude,
+                  style: const TextStyle(fontSize: 20.0)
+                )
+              ]
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text(
+                  "Longitude: ",
+                  style: TextStyle(fontSize: 20.0)
+                ),
+                Text(
+                  location.longitude,
+                  style: const TextStyle(fontSize: 20.0)
+                )
+              ]
+            )
+          ),
+          const SizedBox(height: 16.0),
+          DefaultMaterialButton(
+            text: "Pick another location",
+            onPressed: () {
+              configFormController.location = Location(city: "", country: "", longitude: "", latitude: "");
+              configFormController.isLocationSet = false;
+              Get.to(GetLocationScreen());
+            }
+          )
+        ]
+      )
     );
   }
 }
