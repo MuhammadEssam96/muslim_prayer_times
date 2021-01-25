@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:muslim_prayer_times/controllers/config_form_controller.dart';
-import 'package:muslim_prayer_times/controllers/configs_controller.dart';
 import 'package:muslim_prayer_times/data/models/config_model.dart';
 import 'package:muslim_prayer_times/ui/screens/get_location_screen.dart';
 import 'package:muslim_prayer_times/ui/values/colors.dart';
@@ -14,7 +13,6 @@ class AddConfigScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ConfigsController configsController = Get.find<ConfigsController>();
     return Scaffold(
       appBar: DefaultAppBar.appBar("Add new configuration"),
       backgroundColor: AppColors.primaryColorLight,
@@ -238,27 +236,6 @@ class AddConfigScreen extends StatelessWidget {
                             onSaved: (value) => controller.configName = value
                           )
                         )
-                      ),
-                      const SizedBox(height: 16.0),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          const Text(
-                            "Default configuration",
-                            style: TextStyle(
-                              fontSize: 18.0,
-                              fontWeight: FontWeight.bold,
-                              color: AppColors.primaryColorDark
-                            )
-                          ),
-                          Card(
-                            color: AppColors.primaryColor,
-                            child: Switch(
-                              value: configsController.configsList.isEmpty || controller.configDefaultSelected,
-                              onChanged: configsController.configsList.isEmpty ? null : (value) => controller.configDefaultSelected = value,
-                            )
-                          )
-                        ]
                       ),
                       const SizedBox(height: 16.0),
                       DefaultMaterialButton(
