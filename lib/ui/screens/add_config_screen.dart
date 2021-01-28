@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:muslim_prayer_times/controllers/config_form_controller.dart';
+import 'package:muslim_prayer_times/controllers/configs_controller.dart';
 import 'package:muslim_prayer_times/data/models/config_model.dart';
 import 'package:muslim_prayer_times/ui/screens/get_location_screen.dart';
 import 'package:muslim_prayer_times/ui/values/colors.dart';
@@ -13,6 +14,7 @@ class AddConfigScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ConfigsController configsController = Get.find<ConfigsController>();
     return Scaffold(
       appBar: DefaultAppBar.appBar("Add new configuration"),
       backgroundColor: AppColors.primaryColorLight,
@@ -232,7 +234,10 @@ class AddConfigScreen extends StatelessWidget {
                               errorStyle: TextStyle(fontWeight: FontWeight.bold)
                             ),
                             keyboardType: TextInputType.text,
-                            validator: (value) => value.isEmpty ? "Configuration name can't be empty!ً" : null,
+                            validator: (value) {
+                              if (configsController.checkIfNameExists(value)) return "Name already exists.\nPlease pick another unique name.";
+                              return value.isEmpty ? "Configuration name can't be empty!ً" : null;
+                            },
                             onSaved: (value) => controller.configName = value
                           )
                         )
@@ -240,15 +245,30 @@ class AddConfigScreen extends StatelessWidget {
                       const SizedBox(height: 16.0),
                       DefaultMaterialButton(
                         text: "Save configuration",
-                        onPressed: () {
+                        onPressed: () async {
                           if (formKey.currentState.validate() && controller.isLocationSet){
                             formKey.currentState.save();
-                          } else {
-                            Get.snackbar(
-                              "Location is not set yet",
-                              "Please set your location first",
-                              duration: const Duration(seconds: 2)
+
+                            final Config config = Config(
+                              id: configsController.configsList.length,
+                              location: controller.location,
+                              method: controller.configMethod,
+                              school: controller.configSchool,
+                              isDefault: configsController.configsList.isEmpty,
+                              name: controller.configName
                             );
+
+                            await configsController.addConfig(config);
+
+                            Get.back();
+                          } else {
+                            if (!controller.isLocationSet) {
+                              Get.snackbar(
+                                "Location is not set yet",
+                                "Please set your location first",
+                                duration: const Duration(seconds: 2)
+                              );
+                            }
                           }
                         }
                       )
