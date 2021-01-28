@@ -7,11 +7,16 @@ import 'package:muslim_prayer_times/data/models/location_model.dart';
 
 Future<void> main() async {
   await Hive.initFlutter();
-  await Hive.openBox("AppPreferences");
-  await Hive.openBox("Configs");
 
   Hive.registerAdapter(ConfigAdapter());
   Hive.registerAdapter(LocationAdapter());
+  Hive.registerAdapter(ConfigMethodAdapter());
+  Hive.registerAdapter(ConfigSchoolAdapter());
+
+  await Hive.openBox("AppPreferences");
+  await Hive.openBox<Config>("Configs");
+
+
 
   runApp(MuslimPrayerTimesApp());
 }
