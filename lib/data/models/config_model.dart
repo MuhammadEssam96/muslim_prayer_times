@@ -17,11 +17,19 @@ class Config {
   @HiveField(3)
   final ConfigSchool school;
 
+  @HiveField(4)
+  final bool isDefault;
+
+  @HiveField(5)
+  final String name;
+
   const Config({
     this.id,
     this.location,
     this.method,
-    this.school
+    this.school,
+    this.isDefault,
+    this.name
   });
 }
 

@@ -23,9 +23,15 @@ class ConfigFormController extends GetxController {
   String get configName => _configName.value ?? "";
   set configName(String configName) => _configName.value = configName;
 
-  final Rx<bool> _configDefaultSelected = Rx<bool>();
-  bool get configDefaultSelected => _configDefaultSelected.value ?? true;
-  set configDefaultSelected(bool configDefaultSelected) => _configDefaultSelected.value = configDefaultSelected;
+  ConfigFormController();
+
+  ConfigFormController.editConfig(Config config) {
+    location = config.location;
+    configMethod = config.method;
+    configSchool = config.school;
+    configName = config.name;
+    isLocationSet = true;
+  }
 
   ConfigMethod _getDefaultConfigMethod() {
     if (isLocationSet) {

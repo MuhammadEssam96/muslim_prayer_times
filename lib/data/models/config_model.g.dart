@@ -150,13 +150,15 @@ class ConfigAdapter extends TypeAdapter<Config> {
       location: fields[1] as Location,
       method: fields[2] as ConfigMethod,
       school: fields[3] as ConfigSchool,
+      isDefault: fields[4] as bool,
+      name: fields[5] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, Config obj) {
     writer
-      ..writeByte(4)
+      ..writeByte(6)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -164,7 +166,11 @@ class ConfigAdapter extends TypeAdapter<Config> {
       ..writeByte(2)
       ..write(obj.method)
       ..writeByte(3)
-      ..write(obj.school);
+      ..write(obj.school)
+      ..writeByte(4)
+      ..write(obj.isDefault)
+      ..writeByte(5)
+      ..write(obj.name);
   }
 
   @override
