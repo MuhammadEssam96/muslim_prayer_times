@@ -10,10 +10,9 @@ import 'package:muslim_prayer_times/ui/widgets/config_location_ready_widgets.dar
 import 'package:muslim_prayer_times/ui/widgets/material_button.dart';
 
 class AddConfigScreen extends StatelessWidget {
-  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-
   @override
   Widget build(BuildContext context) {
+    final GlobalKey<FormState> formKey = GlobalKey<FormState>();
     final ConfigsController configsController = Get.find<ConfigsController>();
     return Scaffold(
       appBar: DefaultAppBar.appBar("Add new configuration"),

@@ -6,7 +6,6 @@ import 'package:muslim_prayer_times/ui/widgets/material_button.dart';
 
 class RequestLocationPermissionWidgets extends StatelessWidget {
   final PermissionStatus permissionStatus;
-
   const RequestLocationPermissionWidgets(this.permissionStatus);
 
   List<Widget> getTextWidget(PermissionStatus permissionStatus){

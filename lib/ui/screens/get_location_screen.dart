@@ -27,11 +27,11 @@ class GetLocationScreen extends StatelessWidget {
                 case PermissionStatus.restricted:
                   return RequestLocationPermissionWidgets(controller.permissionStatus);
                 case PermissionStatus.granted:
-                  if (controller.locationIsLoading) return GettingLocationLoadingWidgets();
+                  if (controller.locationIsLoading) return const GettingLocationLoadingWidgets();
                   if (controller.locationData != null) {
                     final Location location = controller.location;
                     if (location.isLocationEmpty(location)) {
-                      return GettingLocationLoadingWidgets();
+                      return const GettingLocationLoadingWidgets();
                     } else {
                       return ConfirmLocationWidgets(location);
                     }
@@ -39,7 +39,7 @@ class GetLocationScreen extends StatelessWidget {
                     controller.getLocation();
                   }
               }
-              return GettingLocationLoadingWidgets();
+              return const GettingLocationLoadingWidgets();
             }
           )
         )

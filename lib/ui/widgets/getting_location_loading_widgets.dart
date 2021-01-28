@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class GettingLocationLoadingWidgets extends StatelessWidget {
+  const GettingLocationLoadingWidgets();
   @override
   Widget build(BuildContext context) {
     return Center(

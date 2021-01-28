@@ -7,7 +7,6 @@ import 'package:muslim_prayer_times/ui/widgets/material_button.dart';
 
 class ConfigLocationReadyWidgets extends StatelessWidget {
   final Location location;
-
   const ConfigLocationReadyWidgets(this.location);
 
   @override
