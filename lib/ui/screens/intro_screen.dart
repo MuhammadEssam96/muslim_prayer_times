@@ -3,7 +3,7 @@ import 'package:hive/hive.dart';
 import 'package:get/get.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:muslim_prayer_times/ui/screens/configs_screen.dart';
-import 'package:muslim_prayer_times/ui/values/colors.dart';
+import 'package:muslim_prayer_times/ui/constants/colors.dart';
 
 class IntroScreen extends StatelessWidget {
   @override

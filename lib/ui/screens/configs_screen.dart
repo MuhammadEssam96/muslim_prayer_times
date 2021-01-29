@@ -4,7 +4,7 @@ import 'package:get/get_state_manager/src/rx_flutter/rx_getx_widget.dart';
 import 'package:muslim_prayer_times/controllers/configs_controller.dart';
 import 'package:muslim_prayer_times/data/models/config_model.dart';
 import 'package:muslim_prayer_times/ui/screens/add_config_screen.dart';
-import 'package:muslim_prayer_times/ui/values/colors.dart';
+import 'package:muslim_prayer_times/ui/constants/colors.dart';
 import 'package:muslim_prayer_times/ui/widgets/app_bar.dart';
 import 'package:muslim_prayer_times/ui/widgets/config_list_tile_widget.dart';
 import 'package:muslim_prayer_times/ui/widgets/material_button.dart';

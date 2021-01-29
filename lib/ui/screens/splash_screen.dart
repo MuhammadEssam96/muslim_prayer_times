@@ -5,8 +5,8 @@ import 'package:hive/hive.dart';
 import 'package:muslim_prayer_times/ui/screens/configs_screen.dart';
 import 'package:muslim_prayer_times/ui/screens/home_screen.dart';
 import 'package:muslim_prayer_times/ui/screens/intro_screen.dart';
-import 'package:muslim_prayer_times/ui/values/colors.dart';
-import 'package:muslim_prayer_times/ui/values/styles.dart';
+import 'package:muslim_prayer_times/ui/constants/colors.dart';
+import 'package:muslim_prayer_times/ui/constants/styles.dart';
 
 class SplashScreen extends StatelessWidget {
   void checkIfFirstOpen(){
@@ -42,8 +42,8 @@ class SplashScreen extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 16.0),
               child: Image.asset(
                 "assets/images/kaaba_logo_brown.png",
-                width: Get.size.width * 0.50,
-              ),
+                width: Get.size.width * 0.50
+              )
             ),
             const Text(
               "Muslim Prayer Times",

@@ -16,7 +16,5 @@ Future<void> main() async {
   await Hive.openBox("AppPreferences");
   await Hive.openBox<Config>("Configs");
 
-
-
   runApp(MuslimPrayerTimesApp());
 }
