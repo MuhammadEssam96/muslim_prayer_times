@@ -33,14 +33,15 @@ class ConfigLocationReadyWidgets extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.baseline,
               children: [
                 const Text(
                   "Latitude: ",
-                  style: TextStyle(fontSize: 20.0)
+                  style: TextStyle(fontSize: 16.0)
                 ),
                 Text(
                   location.latitude,
-                  style: const TextStyle(fontSize: 20.0)
+                  style: const TextStyle(fontSize: 16.0)
                 )
               ]
             ),
@@ -49,19 +50,20 @@ class ConfigLocationReadyWidgets extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.baseline,
               children: [
                 const Text(
                   "Longitude: ",
-                  style: TextStyle(fontSize: 20.0)
+                  style: TextStyle(fontSize: 16.0),
                 ),
                 Text(
                   location.longitude,
-                  style: const TextStyle(fontSize: 20.0)
+                  style: const TextStyle(fontSize: 16.0),
                 )
               ]
             )
           ),
-          const SizedBox(height: 16.0),
+          const SizedBox(height: 8.0),
           DefaultMaterialButton(
             text: "Pick another location",
             onPressed: () {

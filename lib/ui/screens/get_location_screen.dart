@@ -16,7 +16,7 @@ class GetLocationScreen extends StatelessWidget {
       appBar: DefaultAppBar.appBar("Get Location"),
       backgroundColor: AppColors.primaryColorLight,
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Center(
           child: GetX<LocationController>(
             init: LocationController(),

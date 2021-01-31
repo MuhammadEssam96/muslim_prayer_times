@@ -19,7 +19,7 @@ class DefaultMaterialButton extends StatelessWidget {
       child: Text(
         text,
         style: const TextStyle(
-          fontSize: 20.0,
+          fontSize: 16.0,
           fontWeight: FontWeight.bold,
           color: AppColors.primaryColorDark
         )
