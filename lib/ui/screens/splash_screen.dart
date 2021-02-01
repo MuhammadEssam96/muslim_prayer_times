@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:hive/hive.dart';
+import 'package:muslim_prayer_times/services/hive_database_service.dart';
 import 'package:muslim_prayer_times/ui/screens/configs_screen.dart';
 import 'package:muslim_prayer_times/ui/screens/home_screen.dart';
 import 'package:muslim_prayer_times/ui/screens/intro_screen.dart';
@@ -12,16 +12,16 @@ class SplashScreen extends StatelessWidget {
   void checkIfFirstOpen(){
     Future.delayed(
       const Duration(seconds: 3),
-      () async {
-        final bool firstOpen = await Hive.box("AppPreferences").get("firstOpen", defaultValue: true) as bool;
+      () {
+        final bool firstOpen = HiveDatabaseService.getFirstOpenValue();
         if (firstOpen) {
           Get.off(IntroScreen());
         } else {
-          final bool configsExist = await Hive.box("AppPreferences").get("configsExist", defaultValue: false) as bool;
+          final bool configsExist = HiveDatabaseService.getConfigsExist();
           if (configsExist) {
             Get.off(HomeScreen());
           } else {
-           Get.off(ConfigsScreen());
+            Get.off(ConfigsScreen());
           }
         }
       }

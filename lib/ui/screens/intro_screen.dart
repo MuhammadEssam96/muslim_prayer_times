@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hive/hive.dart';
+import 'package:muslim_prayer_times/services/hive_database_service.dart';
 import 'package:get/get.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:muslim_prayer_times/ui/screens/configs_screen.dart';
@@ -59,12 +59,10 @@ class IntroScreen extends StatelessWidget {
         color: Color(0xFFBDBDBD),
         activeColor: AppColors.primaryColorDark,
         activeSize: Size(22.0, 10.0),
-        activeShape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(25.0))
-        )
+        activeShape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(25.0)))
       ),
       onDone: () async {
-        await Hive.box("AppPreferences").put("firstOpen", false);
+        await HiveDatabaseService.setFirstOpenValue(value: false);
         Get.off(ConfigsScreen());
       }
     );

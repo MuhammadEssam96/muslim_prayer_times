@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:hive/hive.dart';
+import 'package:muslim_prayer_times/services/hive_database_service.dart';
 import 'package:muslim_prayer_times/data/models/config_model.dart';
 
 class ConfigsController extends GetxController {
@@ -7,19 +7,19 @@ class ConfigsController extends GetxController {
 
   Future<void> addConfig(Config config) async {
     configsList.add(config);
-    await Hive.box<Config>("Configs").add(config);
+    await HiveDatabaseService.addConfig(config);
   }
 
   Future<void> editConfig({Config oldConfig, Config newConfig}) async {
     configsList[configsList.indexOf(oldConfig)] = newConfig;
-    await Hive.box<Config>("Configs").clear();
-    await Hive.box<Config>("Configs").addAll(configsList);
+    await HiveDatabaseService.deleteAllConfigs();
+    await HiveDatabaseService.addAllConfigs(configsList);
   }
 
   Future<void> deleteConfig(Config config) async {
     configsList.remove(config);
-    await Hive.box<Config>("Configs").clear();
-    await Hive.box<Config>("Configs").addAll(configsList);
+    await HiveDatabaseService.deleteAllConfigs();
+    await HiveDatabaseService.addAllConfigs(configsList);
   }
 
   Future<void> setConfigAsDefault(Config config) async {
@@ -50,15 +50,15 @@ class ConfigsController extends GetxController {
     configsList.clear();
     configsList.addAll(newList);
 
-    await Hive.box<Config>("Configs").clear();
-    await Hive.box<Config>("Configs").addAll(configsList);
+    await HiveDatabaseService.deleteAllConfigs();
+    await HiveDatabaseService.addAllConfigs(configsList);
   }
 
   bool checkIfNameExists(String name) => configsList.any((configElement) => configElement.name == name);
 
   @override
   void onInit() {
-    final List<Config> storedConfigs = Hive.box<Config>("Configs").values.toList() ?? [];
+    final List<Config> storedConfigs = HiveDatabaseService.getAllConfigs() ?? [];
     configsList.addAll(storedConfigs);
     super.onInit();
   }
