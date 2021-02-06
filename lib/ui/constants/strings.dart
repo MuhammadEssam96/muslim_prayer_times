@@ -6,8 +6,9 @@ class Strings {
 
   static const String firstOpenKey = "firstOpen";
   static const String configsExistKey = "configsExist";
+  static const String defaultConfigIDKey = "defaultConfigIDKey";
 
   static const Map<dynamic, String> boxNames = {
-    Config : "configs"
+    Config : configsBoxName
   };
 }
