@@ -249,7 +249,7 @@ class AddConfigScreen extends StatelessWidget {
                             formKey.currentState.save();
 
                             final Config config = Config(
-                              id: configsController.configsList.length,
+                              id: configsController.getValidUniqueID(),
                               location: controller.location,
                               method: controller.configMethod,
                               school: controller.configSchool,

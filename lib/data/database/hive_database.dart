@@ -30,12 +30,17 @@ class HiveDatabase {
 
   //Add all values functions
   static Future<void> addAllObjectsToBox<T>({String boxName, List<T> values}) => _getBoxWithType<T>(boxName).addAll(values);
+  static Future<void> addAllObjectsWithKeysToBox<T>({String boxName, Map<int, T> values}) => _getBoxWithType<T>(boxName).putAll(values);
   static Future<void> addAllValuesToBox({String boxName, List<dynamic> values}) => _getBox(boxName).addAll(values);
 
   //Delete value functions
-  static Future<void> deleteValueFromBox(String boxName, String key) => _getBox(boxName).delete(key);
+  static Future<void> deleteValueFromBox({String boxName, String key}) => _getBox(boxName).delete(key);
 
   //Delete all values functions
   static Future<void> deleteAllObjectsFromBox<T>(String boxName) => _getBoxWithType<T>(boxName).clear();
   static Future<void> deleteAllValuesFromBox(String boxName) => _getBox(boxName).clear();
+
+  //Check if key exists
+  static bool checkIfKeyExistsInBox({String boxName, int key}) => _getBox(boxName).containsKey(key);
+  static bool checkIfKeyExistsInTypedBox<T>({String boxName, int key}) => _getBoxWithType<T>(boxName).containsKey(key);
 }
