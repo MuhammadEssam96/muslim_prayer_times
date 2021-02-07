@@ -19,6 +19,7 @@ class ConfigsController extends GetxController {
     await HiveDatabaseService.deleteAllConfigs();
     await HiveDatabaseService.addAllConfigsWithKeys(configs);
     if (config.isDefault) await HiveDatabaseService.setDefaultConfigIDValue(value: config.id);
+    if (configsList.length == 1) await HiveDatabaseService.setConfigsExistValue(value: true);
   }
 
   Future<void> editConfig({Config oldConfig, Config newConfig}) async {

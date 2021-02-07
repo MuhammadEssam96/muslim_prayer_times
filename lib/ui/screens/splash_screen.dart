@@ -21,7 +21,7 @@ class SplashScreen extends StatelessWidget {
           if (configsExist) {
             Get.offAll(HomeScreen());
           } else {
-            Get.offAll(ConfigsScreen());
+            Get.offAll(ConfigsScreen(), arguments: {"configsExist" : configsExist});
           }
         }
       }

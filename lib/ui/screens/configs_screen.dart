@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/src/rx_flutter/rx_getx_widget.dart';
 import 'package:muslim_prayer_times/controllers/configs_controller.dart';
 import 'package:muslim_prayer_times/data/models/config_model.dart';
 import 'package:muslim_prayer_times/ui/screens/add_config_screen.dart';
 import 'package:muslim_prayer_times/ui/constants/colors.dart';
+import 'package:muslim_prayer_times/ui/screens/home_screen.dart';
 import 'package:muslim_prayer_times/ui/widgets/app_bar.dart';
 import 'package:muslim_prayer_times/ui/widgets/config_list_tile_widget.dart';
 import 'package:muslim_prayer_times/ui/widgets/material_button.dart';
@@ -12,11 +12,23 @@ import 'package:muslim_prayer_times/ui/widgets/material_button.dart';
 class ConfigsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final Map<String, dynamic> arguments = Get.arguments as Map<String, dynamic>;
+    final bool configsExist = arguments["configsExist"] as bool;
     return GetX<ConfigsController>(
       init: ConfigsController(),
       builder: (configsController) {
         return Scaffold(
-          appBar: DefaultAppBar.appBar(title: "Configurations"),
+          appBar: !configsExist && configsController.configsList.isNotEmpty ?
+          DefaultAppBar.appBarWithBackButton(title: ""
+            "Configurations",
+            onBackButtonPressed: () {
+              Get.off(
+                HomeScreen(),
+                transition: Transition.leftToRightWithFade
+              );
+            }
+          ) :
+          DefaultAppBar.appBar(title: "Configurations"),
           backgroundColor: AppColors.primaryColorLight,
           body: Center(
             child: Padding(
