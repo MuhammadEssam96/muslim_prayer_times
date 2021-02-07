@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:muslim_prayer_times/ui/constants/colors.dart';
 
 class DefaultAppBar {
-  static AppBar appBar(String title){
+  static AppBar appBar({String title}){
     return AppBar(
       backgroundColor: AppColors.primaryColorLight,
       elevation: 0.0,

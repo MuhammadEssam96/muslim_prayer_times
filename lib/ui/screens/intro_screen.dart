@@ -14,7 +14,12 @@ class IntroScreen extends StatelessWidget {
         fontWeight: FontWeight.w700
       ),
       bodyTextStyle: TextStyle(fontSize: 19.0),
-      descriptionPadding: EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 16.0),
+      descriptionPadding: EdgeInsets.fromLTRB(
+        16.0,
+        0.0,
+        16.0,
+        16.0
+      ),
       pageColor: AppColors.primaryColorLight,
       imagePadding: EdgeInsets.only(top: 24.0)
     );
@@ -55,10 +60,16 @@ class IntroScreen extends StatelessWidget {
       skip: const Text("Skip"),
       showSkipButton: true,
       dotsDecorator: const DotsDecorator(
-        size: Size(10.0, 10.0),
+        size: Size(
+          10.0,
+          10.0
+        ),
         color: Color(0xFFBDBDBD),
         activeColor: AppColors.primaryColorDark,
-        activeSize: Size(22.0, 10.0),
+        activeSize: Size(
+          22.0,
+          10.0
+        ),
         activeShape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(25.0)))
       ),
       onDone: () async {

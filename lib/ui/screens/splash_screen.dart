@@ -19,9 +19,9 @@ class SplashScreen extends StatelessWidget {
         } else {
           final bool configsExist = HiveDatabaseService.getConfigsExist();
           if (configsExist) {
-            Get.off(HomeScreen());
+            Get.offAll(HomeScreen());
           } else {
-            Get.off(ConfigsScreen());
+            Get.offAll(ConfigsScreen());
           }
         }
       }

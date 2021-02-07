@@ -15,14 +15,17 @@ class AddConfigScreen extends StatelessWidget {
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
     final ConfigsController configsController = Get.find<ConfigsController>();
     return Scaffold(
-      appBar: DefaultAppBar.appBar("Add new configuration"),
+      appBar: DefaultAppBar.appBar(title: "Add new configuration"),
       backgroundColor: AppColors.primaryColorLight,
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: Center(
           child: SafeArea(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+              padding: const EdgeInsets.symmetric(
+                horizontal: 16.0,
+                vertical: 8.0
+              ),
               child: GetX<ConfigFormController>(
                 init: ConfigFormController(),
                 builder: (controller) {

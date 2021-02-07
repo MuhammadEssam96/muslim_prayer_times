@@ -50,13 +50,13 @@ class ConfigurationListTileWidget extends StatelessWidget {
                 }
               }
             )
-          ],
+          ]
         ),
         tileColor: AppColors.primaryColor,
         selectedTileColor: AppColors.accentColorLight,
         selected: config.isDefault,
         shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(4))),
-        onTap: () => configsController.setConfigAsDefault(config),
+        onTap: () => configsController.setConfigAsDefault(config)
       )
     );
   }

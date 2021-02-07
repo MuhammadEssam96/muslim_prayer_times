@@ -18,14 +18,17 @@ class EditConfigScreen extends StatelessWidget {
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
     final ConfigsController configsController = Get.find<ConfigsController>();
     return Scaffold(
-      appBar: DefaultAppBar.appBar("Add new configuration"),
+      appBar: DefaultAppBar.appBar(title: "Add new configuration"),
       backgroundColor: AppColors.primaryColorLight,
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: Center(
           child: SafeArea(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+              padding: const EdgeInsets.symmetric(
+                horizontal: 16.0,
+                vertical: 8.0
+              ),
               child: GetX<ConfigFormController>(
                 init: ConfigFormController.editConfig(config),
                 builder: (controller) {
@@ -237,9 +240,7 @@ class EditConfigScreen extends StatelessWidget {
                             ),
                             keyboardType: TextInputType.text,
                             initialValue: config.name,
-                            validator: (value) {
-                              return value.isEmpty ? "Configuration name can't be empty!ً" : null;
-                            },
+                            validator: (value) => value.isEmpty ? "Configuration name can't be empty!ً" : null,
                             onSaved: (value) => controller.configName = value
                           )
                         )

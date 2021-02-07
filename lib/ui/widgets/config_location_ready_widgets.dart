@@ -44,7 +44,7 @@ class ConfigLocationReadyWidgets extends StatelessWidget {
                   style: const TextStyle(fontSize: 16.0)
                 )
               ]
-            ),
+            )
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),

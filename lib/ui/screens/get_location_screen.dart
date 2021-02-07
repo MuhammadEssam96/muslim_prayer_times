@@ -13,7 +13,7 @@ class GetLocationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: DefaultAppBar.appBar("Get Location"),
+      appBar: DefaultAppBar.appBar(title: "Get Location"),
       backgroundColor: AppColors.primaryColorLight,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),

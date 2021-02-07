@@ -7,7 +7,7 @@ class GeoCodeService {
 
     try {
       return geoCode.reverseGeocoding(latitude: latitude, longitude: longitude);
-    } on RequestThrottledException{
+    } on RequestThrottledException {
       return reverseGeocoding(latitude: latitude, longitude: longitude);
     }
   }

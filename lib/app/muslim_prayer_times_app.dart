@@ -16,7 +16,7 @@ class MuslimPrayerTimesApp extends StatelessWidget {
       routes: {
         "/Home" : (context) => HomeScreen(),
         "/Introduction" : (context) => IntroScreen()
-      },
+      }
     );
   }
 }

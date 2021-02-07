@@ -61,7 +61,7 @@ class RequestLocationPermissionWidgets extends StatelessWidget {
             fontSize: 18.0
           ),
           textAlign: TextAlign.center,
-        ),
+        )
       ];
     }
   }
