@@ -10,7 +10,10 @@ class DefaultAppBar {
       brightness: Brightness.light,
       title: Text(
         title,
-        style: const TextStyle(color: AppColors.primaryColorDark),
+        style: const TextStyle(
+          color: AppColors.primaryColorDark,
+          fontFamily: "Pacifico"
+        ),
       ),
       centerTitle: true,
       iconTheme: const IconThemeData(color: AppColors.primaryColorDark)
@@ -24,7 +27,10 @@ class DefaultAppBar {
       brightness: Brightness.light,
       title: Text(
         title,
-        style: const TextStyle(color: AppColors.primaryColorDark),
+        style: const TextStyle(
+          color: AppColors.primaryColorDark,
+          fontFamily: "Pacifico"
+        ),
       ),
       centerTitle: true,
       iconTheme: const IconThemeData(color: AppColors.primaryColorDark),
