@@ -74,7 +74,7 @@ class IntroScreen extends StatelessWidget {
       ),
       onDone: () async {
         await HiveDatabaseService.setFirstOpenValue(value: false);
-        Get.off(ConfigsScreen());
+        Get.offAll(ConfigsScreen(), arguments: {"configsExist" : false});
       }
     );
   }
