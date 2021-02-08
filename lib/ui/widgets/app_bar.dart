@@ -13,7 +13,7 @@ class DefaultAppBar {
         style: const TextStyle(
           color: AppColors.primaryColorDark,
           fontFamily: "Pacifico"
-        ),
+        )
       ),
       centerTitle: true,
       iconTheme: const IconThemeData(color: AppColors.primaryColorDark)
@@ -30,14 +30,37 @@ class DefaultAppBar {
         style: const TextStyle(
           color: AppColors.primaryColorDark,
           fontFamily: "Pacifico"
-        ),
+        )
       ),
       centerTitle: true,
       iconTheme: const IconThemeData(color: AppColors.primaryColorDark),
       leading: IconButton(
         icon: Icon(Platform.isIOS ? Icons.arrow_back_ios : Icons.arrow_back),
-        onPressed: () => onBackButtonPressed(),
+        onPressed: () => onBackButtonPressed()
+      )
+    );
+  }
+
+  static AppBar appBarWithSettingsIcon({String title}){
+    return AppBar(
+      backgroundColor: AppColors.primaryColorLight,
+      elevation: 0.0,
+      brightness: Brightness.light,
+      title: Text(
+        title,
+        style: const TextStyle(
+          color: AppColors.primaryColorDark,
+          fontFamily: "Pacifico"
+        )
       ),
+      centerTitle: true,
+      iconTheme: const IconThemeData(color: AppColors.primaryColorDark),
+      actions: [
+        IconButton(
+          icon: const Icon(Icons.settings),
+          onPressed: () {}
+        )
+      ]
     );
   }
 }
