@@ -1,6 +1,6 @@
 import 'dart:math';
-
 import 'package:get/get.dart';
+import 'package:muslim_prayer_times/controllers/settings_controller.dart';
 import 'package:muslim_prayer_times/services/hive_database_service.dart';
 import 'package:muslim_prayer_times/data/models/config_model.dart';
 
@@ -61,7 +61,10 @@ class ConfigsController extends GetxController {
         isDefault: configElement.id == config.id
       ));
       final Config currentConfig = newList[configsList.indexOf(configElement)];
-      if (currentConfig.isDefault) await HiveDatabaseService.setDefaultConfigIDValue(value: currentConfig.id);
+      if (currentConfig.isDefault) {
+        await HiveDatabaseService.setDefaultConfigIDValue(value: currentConfig.id);
+        Get.put(SettingsController()).defaultConfigId = currentConfig.id;
+      }
     }
 
     configsList.clear();
