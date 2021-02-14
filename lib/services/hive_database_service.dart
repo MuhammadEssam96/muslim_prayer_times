@@ -2,17 +2,17 @@ import 'package:hive/hive.dart' show TypeAdapter;
 import 'package:muslim_prayer_times/database/hive_database.dart';
 import 'package:muslim_prayer_times/models/config_model.dart';
 import 'package:muslim_prayer_times/models/settings_model.dart';
-import 'package:muslim_prayer_times/view/constants/strings.dart';
+import 'package:muslim_prayer_times/repositories/strings_repository.dart';
 
 class HiveDatabaseService {
   //Get box name based on Object type
-  static String getBoxName(dynamic object) => Strings.boxNames[object];
+  static String getBoxName(dynamic object) => StringsRepository.boxNames[object];
 
   static Future<void> initFlutter() => HiveDatabase.initFlutter();
   static void registerAdapter<T>(TypeAdapter<T> adapter) => HiveDatabase.registerAdapter<T>(adapter);
 
   //Open box functions
-  static Future<void> openAppPreferencesBox() => HiveDatabase.openBox(Strings.appPreferencesBoxName);
+  static Future<void> openAppPreferencesBox() => HiveDatabase.openBox(StringsRepository.appPreferencesBoxName);
   static Future<void> openConfigsBox() => HiveDatabase.openBoxWithType<Config>(getBoxName(Config));
 
   //Configs functions
@@ -39,30 +39,30 @@ class HiveDatabaseService {
 
   //App preferences functions
     //Getters
-  static bool getFirstOpenValue() => HiveDatabase.getTypedValueFromBox<bool>(boxName: Strings.appPreferencesBoxName, key: Strings.firstOpenKey, defaultValue: true);
-  static bool getConfigsExist() => HiveDatabase.getTypedValueFromBox<bool>(boxName: Strings.appPreferencesBoxName, key: Strings.configsExistKey, defaultValue: false);
-  static int getDefaultConfigID() => HiveDatabase.getTypedValueFromBox<int>(boxName: Strings.appPreferencesBoxName, key: Strings.defaultConfigIDKey, defaultValue: 100);
+  static bool getFirstOpenValue() => HiveDatabase.getTypedValueFromBox<bool>(boxName: StringsRepository.appPreferencesBoxName, key: StringsRepository.firstOpenKey, defaultValue: true);
+  static bool getConfigsExist() => HiveDatabase.getTypedValueFromBox<bool>(boxName: StringsRepository.appPreferencesBoxName, key: StringsRepository.configsExistKey, defaultValue: false);
+  static int getDefaultConfigID() => HiveDatabase.getTypedValueFromBox<int>(boxName: StringsRepository.appPreferencesBoxName, key: StringsRepository.defaultConfigIDKey, defaultValue: 100);
 
   static String getSelectedLanguage() {
-    if (HiveDatabase.checkIfKeyExistsInBox(boxName: Strings.appPreferencesBoxName, key: Strings.selectedLanguageKey)) {
-      return HiveDatabase.getTypedValueFromBox<String>(boxName: Strings.appPreferencesBoxName, key: Strings.selectedLanguageKey);
+    if (HiveDatabase.checkIfKeyExistsInBox(boxName: StringsRepository.appPreferencesBoxName, key: StringsRepository.selectedLanguageKey)) {
+      return HiveDatabase.getTypedValueFromBox<String>(boxName: StringsRepository.appPreferencesBoxName, key: StringsRepository.selectedLanguageKey);
     }
     return getDefaultLanguageSelected();
   }
 
   static Settings getSettings() {
-    if (HiveDatabase.checkIfKeyExistsInBox(boxName: Strings.appPreferencesBoxName, key: Strings.settingsKey)) {
-      return HiveDatabase.getTypedValueFromBox<Settings>(boxName: Strings.appPreferencesBoxName, key: Strings.settingsKey);
+    if (HiveDatabase.checkIfKeyExistsInBox(boxName: StringsRepository.appPreferencesBoxName, key: StringsRepository.settingsKey)) {
+      return HiveDatabase.getTypedValueFromBox<Settings>(boxName: StringsRepository.appPreferencesBoxName, key: StringsRepository.settingsKey);
     }
     return getDefaultSettings();
   }
 
     //Setters
-  static Future<void> setFirstOpenValue({bool value}) => HiveDatabase.addValueWithKeyToBox(boxName: Strings.appPreferencesBoxName, key: Strings.firstOpenKey, value: value);
-  static Future<void> setConfigsExistValue({bool value}) => HiveDatabase.addValueWithKeyToBox(boxName: Strings.appPreferencesBoxName, key: Strings.configsExistKey, value: value);
-  static Future<void> setDefaultConfigIDValue({int value}) => HiveDatabase.addValueWithKeyToBox(boxName: Strings.appPreferencesBoxName, key: Strings.defaultConfigIDKey, value: value);
-  static Future<void> setDefaultLanguageValue({String value}) => HiveDatabase.addValueWithKeyToBox(boxName: Strings.appPreferencesBoxName, key: Strings.selectedLanguageKey, value: value);
-  static Future<void> setSettingsValue({Settings value}) => HiveDatabase.addObjectWithKeyToBox<Settings>(boxName: Strings.appPreferencesBoxName, key: Strings.settingsKey, value: value);
+  static Future<void> setFirstOpenValue({bool value}) => HiveDatabase.addValueWithKeyToBox(boxName: StringsRepository.appPreferencesBoxName, key: StringsRepository.firstOpenKey, value: value);
+  static Future<void> setConfigsExistValue({bool value}) => HiveDatabase.addValueWithKeyToBox(boxName: StringsRepository.appPreferencesBoxName, key: StringsRepository.configsExistKey, value: value);
+  static Future<void> setDefaultConfigIDValue({int value}) => HiveDatabase.addValueWithKeyToBox(boxName: StringsRepository.appPreferencesBoxName, key: StringsRepository.defaultConfigIDKey, value: value);
+  static Future<void> setDefaultLanguageValue({String value}) => HiveDatabase.addValueWithKeyToBox(boxName: StringsRepository.appPreferencesBoxName, key: StringsRepository.selectedLanguageKey, value: value);
+  static Future<void> setSettingsValue({Settings value}) => HiveDatabase.addObjectWithKeyToBox<Settings>(boxName: StringsRepository.appPreferencesBoxName, key: StringsRepository.settingsKey, value: value);
 
     //Construct default Settings object and store it if no Settings already stored
   static Settings getDefaultSettings() {

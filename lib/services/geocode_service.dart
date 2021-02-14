@@ -1,9 +1,9 @@
 import 'package:geocode/geocode.dart';
-import 'package:muslim_prayer_times/view/constants/secrets.dart';
+import 'package:muslim_prayer_times/repositories/secrets_repository.dart';
 
 class GeoCodeService {
   static Future<Address> reverseGeocoding({double latitude, double longitude}) {
-    final GeoCode geoCode = GeoCode(apiKey: Secrets.geoCodeXYZAPIKey);
+    final GeoCode geoCode = GeoCode(apiKey: SecretsRepository.geoCodeXYZAPIKey);
 
     try {
       return geoCode.reverseGeocoding(latitude: latitude, longitude: longitude);

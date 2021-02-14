@@ -73,4 +73,4 @@
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
 .flutter-plugins-dependencies
 /android/key.properties
-/lib/view/constants/secrets.dart
+/lib/repositories/secrets_repository.dart
