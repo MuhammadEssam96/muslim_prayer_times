@@ -1,4 +1,4 @@
-import 'package:muslim_prayer_times/data/models/config_model.dart';
+import 'package:muslim_prayer_times/models/config_model.dart';
 
 class Strings {
   static const String appPreferencesBoxName = "AppPreferences";

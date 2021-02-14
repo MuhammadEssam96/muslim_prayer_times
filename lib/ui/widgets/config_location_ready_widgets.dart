@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:muslim_prayer_times/controllers/config_form_controller.dart';
-import 'package:muslim_prayer_times/data/models/location_model.dart';
+import 'package:muslim_prayer_times/models/location_model.dart';
 import 'package:muslim_prayer_times/ui/screens/get_location_screen.dart';
 import 'package:muslim_prayer_times/ui/widgets/material_button.dart';
 

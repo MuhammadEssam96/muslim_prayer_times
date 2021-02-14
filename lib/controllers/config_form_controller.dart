@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
-import 'package:muslim_prayer_times/data/models/config_model.dart';
-import 'package:muslim_prayer_times/data/models/location_model.dart';
+import 'package:muslim_prayer_times/models/config_model.dart';
+import 'package:muslim_prayer_times/models/location_model.dart';
 
 class ConfigFormController extends GetxController {
   final Rx<Location> _location = Rx<Location>();

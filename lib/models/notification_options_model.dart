@@ -1,5 +1,5 @@
 import 'package:hive/hive.dart';
-import 'package:muslim_prayer_times/data/models/prayer_enum_model.dart';
+import 'package:muslim_prayer_times/models/prayer_enum_model.dart';
 
 part 'notification_options_model.g.dart';
 

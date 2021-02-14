@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
-import 'package:muslim_prayer_times/data/models/config_model.dart';
-import 'package:muslim_prayer_times/data/models/notification_options_model.dart';
-import 'package:muslim_prayer_times/data/models/settings_model.dart';
+import 'package:muslim_prayer_times/models/config_model.dart';
+import 'package:muslim_prayer_times/models/notification_options_model.dart';
+import 'package:muslim_prayer_times/models/settings_model.dart';
 import 'package:muslim_prayer_times/services/hive_database_service.dart';
 
 class SettingsController extends GetxController {

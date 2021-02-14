@@ -2,7 +2,7 @@ import 'package:geocode/geocode.dart';
 import 'package:get/get.dart';
 import 'package:location/location.dart' show LocationData;
 import 'package:location_permissions/location_permissions.dart';
-import 'package:muslim_prayer_times/data/models/location_model.dart';
+import 'package:muslim_prayer_times/models/location_model.dart';
 import 'package:muslim_prayer_times/services/geocode_service.dart';
 import 'package:muslim_prayer_times/services/location_permission_service.dart';
 import 'package:muslim_prayer_times/services/location_service.dart';

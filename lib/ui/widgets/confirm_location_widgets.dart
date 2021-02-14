@@ -1,10 +1,9 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:muslim_prayer_times/controllers/location_controller.dart';
-import 'package:muslim_prayer_times/data/models/location_model.dart';
+import 'package:muslim_prayer_times/models/location_model.dart';
 import 'package:muslim_prayer_times/controllers/config_form_controller.dart';
 import 'package:muslim_prayer_times/ui/widgets/material_button.dart';
 

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:location_permissions/location_permissions.dart';
 import 'package:muslim_prayer_times/controllers/location_controller.dart';
-import 'package:muslim_prayer_times/data/models/location_model.dart';
+import 'package:muslim_prayer_times/models/location_model.dart';
 import 'package:muslim_prayer_times/ui/constants/colors.dart';
 import 'package:muslim_prayer_times/ui/widgets/app_bar.dart';
 import 'package:muslim_prayer_times/ui/widgets/confirm_location_widgets.dart';

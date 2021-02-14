@@ -2,7 +2,7 @@ import 'dart:math';
 import 'package:get/get.dart';
 import 'package:muslim_prayer_times/controllers/settings_controller.dart';
 import 'package:muslim_prayer_times/services/hive_database_service.dart';
-import 'package:muslim_prayer_times/data/models/config_model.dart';
+import 'package:muslim_prayer_times/models/config_model.dart';
 
 class ConfigsController extends GetxController {
   final List<Config> configsList = <Config>[].obs;
