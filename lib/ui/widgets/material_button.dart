@@ -4,7 +4,7 @@ import 'package:muslim_prayer_times/ui/constants/colors.dart';
 
 class DefaultMaterialButton extends StatelessWidget {
   final String text;
-  final Function onPressed;
+  final VoidCallback onPressed;
 
   const DefaultMaterialButton({this.text, this.onPressed});
 
@@ -14,7 +14,7 @@ class DefaultMaterialButton extends StatelessWidget {
       height: 48.0,
       minWidth: Get.width * 0.50,
       color: AppColors.accentColorLight,
-      onPressed: () => onPressed(),
+      onPressed: onPressed,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(48.0)),
       child: Text(
         text,

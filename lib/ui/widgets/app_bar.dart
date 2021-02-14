@@ -1,6 +1,8 @@
 import 'dart:io' show Platform;
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:muslim_prayer_times/ui/constants/colors.dart';
+import 'package:muslim_prayer_times/ui/screens/settings_screen.dart';
 
 class DefaultAppBar {
   static AppBar appBar({String title}){
@@ -20,7 +22,7 @@ class DefaultAppBar {
     );
   }
 
-  static AppBar appBarWithBackButton({String title, Function onBackButtonPressed}){
+  static AppBar appBarWithBackButton({String title, VoidCallback onBackButtonPressed}){
     return AppBar(
       backgroundColor: AppColors.primaryColorLight,
       elevation: 0.0,
@@ -36,7 +38,7 @@ class DefaultAppBar {
       iconTheme: const IconThemeData(color: AppColors.primaryColorDark),
       leading: IconButton(
         icon: Icon(Platform.isIOS ? Icons.arrow_back_ios : Icons.arrow_back),
-        onPressed: () => onBackButtonPressed()
+        onPressed: onBackButtonPressed
       )
     );
   }
@@ -58,7 +60,7 @@ class DefaultAppBar {
       actions: [
         IconButton(
           icon: const Icon(Icons.settings),
-          onPressed: () {}
+          onPressed: () => Get.to(SettingsScreen())
         )
       ]
     );

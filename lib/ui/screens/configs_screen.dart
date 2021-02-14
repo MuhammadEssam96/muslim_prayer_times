@@ -19,8 +19,8 @@ class ConfigsScreen extends StatelessWidget {
       builder: (configsController) {
         return Scaffold(
           appBar: !configsExist && configsController.configsList.isNotEmpty ?
-          DefaultAppBar.appBarWithBackButton(title: ""
-            "Configurations",
+          DefaultAppBar.appBarWithBackButton(
+            title: "Configurations",
             onBackButtonPressed: () {
               Get.off(
                 HomeScreen(),
