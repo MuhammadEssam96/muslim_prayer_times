@@ -1,5 +1,5 @@
 import 'package:hive/hive.dart' show TypeAdapter;
-import 'package:muslim_prayer_times/data/database/hive_database.dart';
+import 'package:muslim_prayer_times/database/hive_database.dart';
 import 'package:muslim_prayer_times/models/config_model.dart';
 import 'package:muslim_prayer_times/models/settings_model.dart';
 import 'package:muslim_prayer_times/ui/constants/strings.dart';
