@@ -33,6 +33,7 @@ class ConfigsController extends GetxController {
 
     await HiveDatabaseService.deleteAllConfigs();
     await HiveDatabaseService.addAllConfigsWithKeys(configs);
+    if (newConfig.isDefault) Get.put(SettingsController()).defaultConfig = newConfig;
   }
 
   Future<void> deleteConfig(Config config) async {
