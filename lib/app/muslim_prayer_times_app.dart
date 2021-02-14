@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:muslim_prayer_times/ui/screens/home_screen.dart';
-import 'package:muslim_prayer_times/ui/screens/intro_screen.dart';
-import 'package:muslim_prayer_times/ui/screens/splash_screen.dart';
-import 'package:muslim_prayer_times/ui/constants/themes.dart' as app_themes;
+import 'package:muslim_prayer_times/view/screens/home_screen.dart';
+import 'package:muslim_prayer_times/view/screens/intro_screen.dart';
+import 'package:muslim_prayer_times/view/screens/splash_screen.dart';
+import 'package:muslim_prayer_times/view/constants/themes.dart' as app_themes;
 
 class MuslimPrayerTimesApp extends StatelessWidget {
   @override

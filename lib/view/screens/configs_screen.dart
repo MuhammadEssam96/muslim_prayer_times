@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:muslim_prayer_times/controllers/configs_controller.dart';
 import 'package:muslim_prayer_times/models/config_model.dart';
-import 'package:muslim_prayer_times/ui/screens/add_config_screen.dart';
-import 'package:muslim_prayer_times/ui/constants/colors.dart';
-import 'package:muslim_prayer_times/ui/screens/home_screen.dart';
-import 'package:muslim_prayer_times/ui/widgets/app_bar.dart';
-import 'package:muslim_prayer_times/ui/widgets/config_list_tile_widget.dart';
-import 'package:muslim_prayer_times/ui/widgets/material_button.dart';
+import 'package:muslim_prayer_times/view/screens/add_config_screen.dart';
+import 'package:muslim_prayer_times/view/constants/colors.dart';
+import 'package:muslim_prayer_times/view/screens/home_screen.dart';
+import 'package:muslim_prayer_times/view/widgets/app_bar.dart';
+import 'package:muslim_prayer_times/view/widgets/config_list_tile_widget.dart';
+import 'package:muslim_prayer_times/view/widgets/material_button.dart';
 
 class ConfigsScreen extends StatelessWidget {
   @override

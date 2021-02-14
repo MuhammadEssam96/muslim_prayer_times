@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:muslim_prayer_times/controllers/configs_controller.dart';
 import 'package:muslim_prayer_times/models/config_model.dart';
-import 'package:muslim_prayer_times/ui/screens/edit_config_screen.dart';
-import 'package:muslim_prayer_times/ui/constants/colors.dart';
+import 'package:muslim_prayer_times/view/screens/edit_config_screen.dart';
+import 'package:muslim_prayer_times/view/constants/colors.dart';
 
 class ConfigurationListTileWidget extends StatelessWidget {
   final Config config;

@@ -2,9 +2,9 @@ import 'package:flag/flag.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:muslim_prayer_times/controllers/settings_controller.dart';
-import 'package:muslim_prayer_times/ui/constants/colors.dart';
-import 'package:muslim_prayer_times/ui/widgets/app_bar.dart';
-import 'package:muslim_prayer_times/ui/widgets/settings_default_config_list_tile_widget.dart';
+import 'package:muslim_prayer_times/view/constants/colors.dart';
+import 'package:muslim_prayer_times/view/widgets/app_bar.dart';
+import 'package:muslim_prayer_times/view/widgets/settings_default_config_list_tile_widget.dart';
 import 'package:muslim_prayer_times/models/prayer_enum_model.dart' as prayer;
 
 class SettingsScreen extends StatelessWidget {

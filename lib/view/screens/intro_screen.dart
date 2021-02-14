@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:muslim_prayer_times/services/hive_database_service.dart';
 import 'package:get/get.dart';
 import 'package:introduction_screen/introduction_screen.dart';
-import 'package:muslim_prayer_times/ui/screens/configs_screen.dart';
-import 'package:muslim_prayer_times/ui/constants/colors.dart';
+import 'package:muslim_prayer_times/view/screens/configs_screen.dart';
+import 'package:muslim_prayer_times/view/constants/colors.dart';
 
 class IntroScreen extends StatelessWidget {
   @override

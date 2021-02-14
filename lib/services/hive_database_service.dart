@@ -2,7 +2,7 @@ import 'package:hive/hive.dart' show TypeAdapter;
 import 'package:muslim_prayer_times/database/hive_database.dart';
 import 'package:muslim_prayer_times/models/config_model.dart';
 import 'package:muslim_prayer_times/models/settings_model.dart';
-import 'package:muslim_prayer_times/ui/constants/strings.dart';
+import 'package:muslim_prayer_times/view/constants/strings.dart';
 
 class HiveDatabaseService {
   //Get box name based on Object type

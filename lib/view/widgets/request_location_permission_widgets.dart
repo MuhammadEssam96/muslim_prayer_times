@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:location_permissions/location_permissions.dart';
 import 'package:muslim_prayer_times/controllers/location_controller.dart';
-import 'package:muslim_prayer_times/ui/widgets/material_button.dart';
+import 'package:muslim_prayer_times/view/widgets/material_button.dart';
 
 class RequestLocationPermissionWidgets extends StatelessWidget {
   final PermissionStatus permissionStatus;

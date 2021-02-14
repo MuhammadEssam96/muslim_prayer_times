@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:muslim_prayer_times/ui/constants/colors.dart';
+import 'package:muslim_prayer_times/view/constants/colors.dart';
 
 class DefaultMaterialButton extends StatelessWidget {
   final String text;
