@@ -8,7 +8,8 @@ import '../view/screens/splash_screen.dart';
 
 class MuslimPrayerTimesApp extends StatelessWidget {
   @override
-  Widget build(BuildContext context) => GetMaterialApp(
+  Widget build(BuildContext context) {
+    return GetMaterialApp(
       title: "Muslim Prayer Times",
       debugShowCheckedModeBanner: false,
       theme: app_themes.lightThemeData,
@@ -18,4 +19,5 @@ class MuslimPrayerTimesApp extends StatelessWidget {
         "/Introduction" : (context) => IntroScreen()
       }
     );
+  }
 }
