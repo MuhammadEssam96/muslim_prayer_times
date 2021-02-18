@@ -1,6 +1,6 @@
 import 'package:hive/hive.dart';
 
-part 'config_method_enum_model.g.dart';
+part 'generated/config_method_enum_model.g.dart';
 
 @HiveType(typeId: 3)
 enum ConfigMethod {

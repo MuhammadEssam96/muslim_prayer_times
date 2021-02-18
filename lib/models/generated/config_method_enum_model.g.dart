@@ -1,4 +1,4 @@
-part of 'config_method_enum_model.dart'
+part of '../config_method_enum_model.dart'
 
 class ConfigMethodAdapter extends TypeAdapter<ConfigMethod> {
   @override

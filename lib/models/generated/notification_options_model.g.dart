@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'notification_options_model.dart';
+part of '../notification_options_model.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator

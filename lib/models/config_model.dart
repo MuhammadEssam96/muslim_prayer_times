@@ -4,7 +4,7 @@ import 'config_method_enum_model.dart';
 import 'config_school_enum_model.dart';
 import 'location_model.dart';
 
-part 'config_model.g.dart';
+part 'generated/config_model.g.dart';
 
 @HiveType(typeId: 0)
 class Config {

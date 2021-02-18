@@ -1,6 +1,6 @@
 import 'package:hive/hive.dart';
 
-part 'location_model.g.dart';
+part 'generated/location_model.g.dart';
 
 @HiveType(typeId: 1)
 class Location {

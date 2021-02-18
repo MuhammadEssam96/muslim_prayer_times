@@ -1,6 +1,6 @@
 import 'package:hive/hive.dart';
 
-part 'prayer_enum_model.g.dart';
+part 'generated/prayer_enum_model.g.dart';
 
 @HiveType(typeId: 6)
 enum Prayer {

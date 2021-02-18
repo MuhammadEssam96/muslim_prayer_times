@@ -1,4 +1,4 @@
-part of 'config_school_enum_model.dart';
+part of '../config_school_enum_model.dart';
 
 class ConfigSchoolAdapter extends TypeAdapter<ConfigSchool> {
   @override

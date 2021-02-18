@@ -2,7 +2,7 @@ import 'package:hive/hive.dart';
 
 import 'prayer_enum_model.dart';
 
-part 'notification_options_model.g.dart';
+part 'generated/notification_options_model.g.dart';
 
 @HiveType(typeId: 5)
 class NotificationOptions {

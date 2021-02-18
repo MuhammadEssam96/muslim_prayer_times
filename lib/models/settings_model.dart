@@ -3,7 +3,7 @@ import 'package:hive/hive.dart';
 import '../services/hive_database_service.dart';
 import 'notification_options_model.dart';
 
-part 'settings_model.g.dart';
+part 'generated/settings_model.g.dart';
 
 @HiveType(typeId: 4)
 class Settings {
