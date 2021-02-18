@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:muslim_prayer_times/controllers/configs_controller.dart';
-import 'package:muslim_prayer_times/models/config_model.dart';
-import 'package:muslim_prayer_times/view/screens/edit_config_screen.dart';
-import 'package:muslim_prayer_times/view/constants/colors.dart';
+
+import '../../controllers/configs_controller.dart';
+import '../../models/config_model.dart';
+import '../constants/colors.dart';
+import '../screens/edit_config_screen.dart';
+
+//ignore_for_file: lines_longer_than_80_chars
 
 class ConfigurationListTileWidget extends StatelessWidget {
   final Config config;
@@ -55,7 +58,11 @@ class ConfigurationListTileWidget extends StatelessWidget {
         tileColor: AppColors.primaryColor,
         selectedTileColor: AppColors.accentColorLight,
         selected: config.isDefault,
-        shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(4))),
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(
+            Radius.circular(4)
+          )
+        ),
         onTap: () => configsController.setConfigAsDefault(config)
       )
     );

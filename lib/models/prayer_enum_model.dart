@@ -21,9 +21,9 @@ enum Prayer {
 }
 
 const Map<Prayer, String> names = {
-  Prayer.fajr : "Fajr",
-  Prayer.dhuhr : "Dhuhr",
-  Prayer.asr : "Asr",
-  Prayer.maghrib : "Maghrib",
-  Prayer.isha : "Isha"
+  Prayer.fajr: "Fajr",
+  Prayer.dhuhr: "Dhuhr",
+  Prayer.asr: "Asr",
+  Prayer.maghrib: "Maghrib",
+  Prayer.isha: "Isha"
 };

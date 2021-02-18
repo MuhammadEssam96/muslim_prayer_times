@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:muslim_prayer_times/app/muslim_prayer_times_app.dart';
-import 'package:muslim_prayer_times/models/config_model.dart';
-import 'package:muslim_prayer_times/models/location_model.dart';
-import 'package:muslim_prayer_times/models/notification_options_model.dart';
-import 'package:muslim_prayer_times/models/settings_model.dart';
-import 'package:muslim_prayer_times/models/prayer_enum_model.dart';
-import 'package:muslim_prayer_times/services/hive_database_service.dart';
+
+import 'app/muslim_prayer_times_app.dart';
+import 'models/config_model.dart';
+import 'models/location_model.dart';
+import 'models/notification_options_model.dart';
+import 'models/prayer_enum_model.dart';
+import 'models/settings_model.dart';
+import 'services/hive_database_service.dart';
+
+//ignore_for_file: lines_longer_than_80_chars
 
 Future<void> main() async {
   await HiveDatabaseService.initFlutter();

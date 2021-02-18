@@ -1,10 +1,13 @@
 import 'package:get/get.dart';
-import 'package:muslim_prayer_times/models/config_model.dart';
-import 'package:muslim_prayer_times/models/location_model.dart';
+
+import '../models/config_model.dart';
+import '../models/location_model.dart';
 
 class ConfigFormController extends GetxController {
   final Rx<Location> _location = Rx<Location>();
-  Location get location => _location.value ?? Location.cityAndCountry(city: "", country: "");
+  Location get location {
+    return _location.value ?? Location.cityAndCountry(city: "", country: "");
+  }
   set location(Location location) => _location.value = location;
 
   final Rx<bool> _isLocationSet = Rx<bool>();
@@ -12,12 +15,18 @@ class ConfigFormController extends GetxController {
   set isLocationSet(bool isLocationSet) => _isLocationSet.value = isLocationSet;
 
   final Rx<ConfigMethod> _configMethod = Rx<ConfigMethod>();
-  ConfigMethod get configMethod => _configMethod.value ?? _getDefaultConfigMethod();
-  set configMethod(ConfigMethod configMethod) => _configMethod.value = configMethod;
+  ConfigMethod get configMethod {
+    return _configMethod.value ?? _getDefaultConfigMethod();
+  }
+  set configMethod(ConfigMethod configMethod) {
+    _configMethod.value = configMethod;
+  }
 
   final Rx<ConfigSchool> _configSchool = Rx<ConfigSchool>();
   ConfigSchool get configSchool => _configSchool.value ?? ConfigSchool.shafi;
-  set configSchool(ConfigSchool configSchool) => _configSchool.value = configSchool;
+  set configSchool(ConfigSchool configSchool) {
+    _configSchool.value = configSchool;
+  }
 
   final Rx<String> _configName = Rx<String>();
   String get configName => _configName.value ?? "";
@@ -37,7 +46,7 @@ class ConfigFormController extends GetxController {
     if (isLocationSet) {
       final String country = location.country.toLowerCase().trim();
 
-      if (country.contains("pakistan")){
+      if (country.contains("pakistan")) {
         return ConfigMethod.universityOfIslamicSciencesKarachi;
       } else if (country.contains("america")
         || country.contains("states")
@@ -63,9 +72,12 @@ class ConfigFormController extends GetxController {
         || country.contains("antigua and barbuda")
         || country.contains("dominica")
         || country.contains("saint kitts and nevis")
-      ){
+      ) {
         return ConfigMethod.islamicSocietyOfNorthAmerica;
-      } else if (country.contains("saudi") || country.contains("saudi arabia") || country.contains("ksa")) {
+      } else if (country.contains("saudi")
+        || country.contains("saudi arabia")
+        || country.contains("ksa")
+      ) {
         return ConfigMethod.ummAlQuraUniversityMakkah;
       } else if (country.contains("egypt")) {
         return ConfigMethod.egyptianGeneralAuthorityOfSurvey;

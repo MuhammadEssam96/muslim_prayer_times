@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:location_permissions/location_permissions.dart';
-import 'package:muslim_prayer_times/controllers/location_controller.dart';
-import 'package:muslim_prayer_times/view/widgets/material_button.dart';
+
+import '../../controllers/location_controller.dart';
+import 'material_button.dart';
+
+//ignore_for_file: lines_longer_than_80_chars
 
 class RequestLocationPermissionWidgets extends StatelessWidget {
   final PermissionStatus permissionStatus;
@@ -90,7 +93,9 @@ class RequestLocationPermissionWidgets extends StatelessWidget {
           height: 48.0,
           minWidth: Get.width * 0.50,
           onPressed: () => Get.back(),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(48.0)),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(48.0)
+          ),
           child: const Text("Cancel")
         )
       ]

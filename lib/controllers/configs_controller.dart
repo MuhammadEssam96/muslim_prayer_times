@@ -1,8 +1,10 @@
 import 'dart:math';
+
 import 'package:get/get.dart';
-import 'package:muslim_prayer_times/controllers/settings_controller.dart';
-import 'package:muslim_prayer_times/services/hive_database_service.dart';
-import 'package:muslim_prayer_times/models/config_model.dart';
+
+import '../models/config_model.dart';
+import '../services/hive_database_service.dart';
+import 'settings_controller.dart';
 
 class ConfigsController extends GetxController {
   final List<Config> configsList = <Config>[].obs;
@@ -18,8 +20,14 @@ class ConfigsController extends GetxController {
 
     await HiveDatabaseService.deleteAllConfigs();
     await HiveDatabaseService.addAllConfigsWithKeys(configs);
-    if (config.isDefault) await HiveDatabaseService.setDefaultConfigIDValue(value: config.id);
-    if (configsList.length == 1) await HiveDatabaseService.setConfigsExistValue(value: true);
+
+    if (config.isDefault) {
+      await HiveDatabaseService.setDefaultConfigIDValue(value: config.id);
+    }
+
+    if (configsList.length == 1) {
+      await HiveDatabaseService.setConfigsExistValue(value: true);
+    }
   }
 
   Future<void> editConfig({Config oldConfig, Config newConfig}) async {
@@ -33,7 +41,10 @@ class ConfigsController extends GetxController {
 
     await HiveDatabaseService.deleteAllConfigs();
     await HiveDatabaseService.addAllConfigsWithKeys(configs);
-    if (newConfig.isDefault) Get.put(SettingsController()).defaultConfig = newConfig;
+
+    if (newConfig.isDefault) {
+      Get.put(SettingsController()).defaultConfig = newConfig;
+    }
   }
 
   Future<void> deleteConfig(Config config) async {
@@ -63,7 +74,9 @@ class ConfigsController extends GetxController {
       ));
       final Config currentConfig = newList[configsList.indexOf(configElement)];
       if (currentConfig.isDefault) {
-        await HiveDatabaseService.setDefaultConfigIDValue(value: currentConfig.id);
+        await HiveDatabaseService
+            .setDefaultConfigIDValue(value: currentConfig.id);
+
         Get.put(SettingsController()).defaultConfigId = currentConfig.id;
       }
     }
@@ -81,7 +94,9 @@ class ConfigsController extends GetxController {
     await HiveDatabaseService.addAllConfigsWithKeys(configs);
   }
 
-  bool checkIfNameExists(String name) => configsList.any((configElement) => configElement.name == name);
+  bool checkIfNameExists(String name) {
+    return configsList.any((configElement) => configElement.name == name);
+  }
 
   int getValidUniqueID() {
     int randomNumber = Random().nextInt(99);
@@ -95,7 +110,9 @@ class ConfigsController extends GetxController {
 
   @override
   void onInit() {
-    final List<Config> storedConfigs = HiveDatabaseService.getAllConfigs() ?? [];
+    final List<Config> storedConfigs = HiveDatabaseService
+        .getAllConfigs() ?? [];
+
     configsList.addAll(storedConfigs);
     super.onInit();
   }

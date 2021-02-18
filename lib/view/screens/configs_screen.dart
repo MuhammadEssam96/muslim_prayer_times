@@ -1,24 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:muslim_prayer_times/controllers/configs_controller.dart';
-import 'package:muslim_prayer_times/models/config_model.dart';
-import 'package:muslim_prayer_times/view/screens/add_config_screen.dart';
-import 'package:muslim_prayer_times/view/constants/colors.dart';
-import 'package:muslim_prayer_times/view/screens/home_screen.dart';
-import 'package:muslim_prayer_times/view/widgets/app_bar.dart';
-import 'package:muslim_prayer_times/view/widgets/config_list_tile_widget.dart';
-import 'package:muslim_prayer_times/view/widgets/material_button.dart';
+
+import '../../controllers/configs_controller.dart';
+import '../../models/config_model.dart';
+import '../constants/colors.dart';
+import '../widgets/app_bar.dart';
+import '../widgets/config_list_tile_widget.dart';
+import '../widgets/material_button.dart';
+import 'add_config_screen.dart';
+import 'home_screen.dart';
+
+//ignore_for_file: lines_longer_than_80_chars
 
 class ConfigsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final Map<String, dynamic> arguments = Get.arguments as Map<String, dynamic>;
+    final Map<String, dynamic> arguments = Get
+        .arguments as Map<String, dynamic>;
+
     final bool configsExist = arguments["configsExist"] as bool;
+
     return GetX<ConfigsController>(
       init: ConfigsController(),
       builder: (configsController) {
         return Scaffold(
-          appBar: !configsExist && configsController.configsList.isNotEmpty ?
+          appBar: !configsExist && configsController.configsList.isNotEmpty
+          ?
           DefaultAppBar.appBarWithBackButton(
             title: "Configurations",
             onBackButtonPressed: () {
@@ -27,7 +34,8 @@ class ConfigsScreen extends StatelessWidget {
                 transition: Transition.leftToRightWithFade
               );
             }
-          ) :
+          )
+          :
           DefaultAppBar.appBar(title: "Configurations"),
           backgroundColor: AppColors.primaryColorLight,
           body: Center(

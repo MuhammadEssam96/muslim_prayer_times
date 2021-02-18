@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:muslim_prayer_times/services/hive_database_service.dart';
-import 'package:muslim_prayer_times/view/screens/configs_screen.dart';
-import 'package:muslim_prayer_times/view/screens/home_screen.dart';
-import 'package:muslim_prayer_times/view/screens/intro_screen.dart';
-import 'package:muslim_prayer_times/view/constants/colors.dart';
-import 'package:muslim_prayer_times/view/constants/styles.dart';
+
+import '../../services/hive_database_service.dart';
+import '../constants/colors.dart';
+import '../constants/styles.dart';
+import 'configs_screen.dart';
+import 'home_screen.dart';
+import 'intro_screen.dart';
+
+//ignore_for_file: lines_longer_than_80_chars
 
 class SplashScreen extends StatelessWidget {
   void checkIfFirstOpen(){

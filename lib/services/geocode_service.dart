@@ -1,5 +1,6 @@
 import 'package:geocode/geocode.dart';
-import 'package:muslim_prayer_times/repositories/secrets_repository.dart';
+
+import '../repositories/secrets_repository.dart';
 
 class GeoCodeService {
   static Future<Address> reverseGeocoding({double latitude, double longitude}) {

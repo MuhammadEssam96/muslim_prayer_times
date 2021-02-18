@@ -1,11 +1,15 @@
 import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:muslim_prayer_times/controllers/location_controller.dart';
-import 'package:muslim_prayer_times/models/location_model.dart';
-import 'package:muslim_prayer_times/controllers/config_form_controller.dart';
-import 'package:muslim_prayer_times/view/widgets/material_button.dart';
+
+import '../../controllers/config_form_controller.dart';
+import '../../controllers/location_controller.dart';
+import '../../models/location_model.dart';
+import 'material_button.dart';
+
+//ignore_for_file: lines_longer_than_80_chars
 
 class ConfirmLocationWidgets extends StatelessWidget {
   final Location location;
@@ -107,7 +111,9 @@ class ConfirmLocationWidgets extends StatelessWidget {
           FlatButton(
             height: 48,
             minWidth: Get.width * 0.50,
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(48)),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(48)
+            ),
             onPressed: () async => Get.find<LocationController>().getLocation(),
             child: const Text("Refresh")
           )

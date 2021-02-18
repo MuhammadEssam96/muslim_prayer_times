@@ -1,5 +1,9 @@
 include: package:lint/analysis_options.yaml
 
+linter:
+  rules:
+    - lines_longer_than_80_chars
+
 analyzer:
   errors:
     avoid_print: ignore

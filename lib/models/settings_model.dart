@@ -1,6 +1,7 @@
 import 'package:hive/hive.dart';
-import 'package:muslim_prayer_times/models/notification_options_model.dart';
-import 'package:muslim_prayer_times/services/hive_database_service.dart';
+
+import '../services/hive_database_service.dart';
+import 'notification_options_model.dart';
 
 part 'settings_model.g.dart';
 

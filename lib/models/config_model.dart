@@ -1,5 +1,6 @@
 import 'package:hive/hive.dart';
-import 'package:muslim_prayer_times/models/location_model.dart';
+
+import 'location_model.dart';
 
 part 'config_model.g.dart';
 

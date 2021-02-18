@@ -33,5 +33,10 @@ class Location {
     this.country
   });
 
-  bool isLocationEmpty(Location location) => location.city.isEmpty || location.country.isEmpty || location.latitude.isEmpty || location.longitude.isEmpty;
+  bool isLocationEmpty(Location location) {
+    return location.city.isEmpty
+        || location.country.isEmpty
+        || location.latitude.isEmpty
+        || location.longitude.isEmpty;
+  }
 }

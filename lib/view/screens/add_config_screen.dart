@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:muslim_prayer_times/controllers/config_form_controller.dart';
-import 'package:muslim_prayer_times/controllers/configs_controller.dart';
-import 'package:muslim_prayer_times/models/config_model.dart';
-import 'package:muslim_prayer_times/view/screens/get_location_screen.dart';
-import 'package:muslim_prayer_times/view/constants/colors.dart';
-import 'package:muslim_prayer_times/view/widgets/app_bar.dart';
-import 'package:muslim_prayer_times/view/widgets/config_location_ready_widgets.dart';
-import 'package:muslim_prayer_times/view/widgets/material_button.dart';
+
+import '../../controllers/config_form_controller.dart';
+import '../../controllers/configs_controller.dart';
+import '../../models/config_model.dart';
+import '../constants/colors.dart';
+import '../widgets/app_bar.dart';
+import '../widgets/config_location_ready_widgets.dart';
+import '../widgets/material_button.dart';
+import 'get_location_screen.dart';
+
+// ignore_for_file: lines_longer_than_80_chars
 
 class AddConfigScreen extends StatelessWidget {
   @override
@@ -221,7 +224,10 @@ class AddConfigScreen extends StatelessWidget {
                             decoration: const InputDecoration(
                               contentPadding: EdgeInsets.all(10.0),
                               counterStyle: TextStyle(fontWeight: FontWeight.bold),
-                              enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: AppColors.primaryColorDark)),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: AppColors.primaryColorDark)
+                              ),
                               hintText: "Configuration name",
                               focusColor: AppColors.primaryColorDark,
                               prefixIcon: Icon(
@@ -237,8 +243,14 @@ class AddConfigScreen extends StatelessWidget {
                             ),
                             keyboardType: TextInputType.text,
                             validator: (value) {
-                              if (configsController.checkIfNameExists(value)) return "Name already exists.\nPlease pick another unique name.";
-                              return value.isEmpty ? "Configuration name can't be empty!ً" : null;
+                              if (configsController.checkIfNameExists(value)) {
+                                return "Name already exists.\nPlease pick another unique name.";
+                              }
+                              if (value.isEmpty) {
+                                return "Configuration name can't be empty!ً";
+                              } else {
+                                return null;
+                              }
                             },
                             onSaved: (value) => controller.configName = value
                           )

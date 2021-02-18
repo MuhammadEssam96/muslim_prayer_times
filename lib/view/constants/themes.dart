@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:muslim_prayer_times/view/constants/colors.dart';
+
+import 'colors.dart';
 
 final ThemeData lightThemeData = ThemeData(
   primaryColor: AppColors.primaryColor,

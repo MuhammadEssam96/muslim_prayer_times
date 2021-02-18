@@ -1,11 +1,14 @@
 import 'package:flag/flag.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:muslim_prayer_times/controllers/settings_controller.dart';
-import 'package:muslim_prayer_times/view/constants/colors.dart';
-import 'package:muslim_prayer_times/view/widgets/app_bar.dart';
-import 'package:muslim_prayer_times/view/widgets/settings_default_config_list_tile_widget.dart';
-import 'package:muslim_prayer_times/models/prayer_enum_model.dart' as prayer;
+
+import '../../controllers/settings_controller.dart';
+import '../../models/prayer_enum_model.dart' as prayer;
+import '../constants/colors.dart';
+import '../widgets/app_bar.dart';
+import '../widgets/settings_default_config_list_tile_widget.dart';
+
+//ignore_for_file: lines_longer_than_80_chars
 
 class SettingsScreen extends StatelessWidget {
   @override
@@ -72,7 +75,9 @@ class SettingsScreen extends StatelessWidget {
                     const SizedBox(height: 16.0),
                     Center(
                       child: ToggleButtons(
-                        borderRadius: const BorderRadius.all(Radius.circular(15)),
+                        borderRadius: const BorderRadius.all(
+                          Radius.circular(15)
+                        ),
                         fillColor: AppColors.primaryColorDark,
                         selectedColor: AppColors.accentColorLight,
                         selectedBorderColor: AppColors.primaryColorDark,

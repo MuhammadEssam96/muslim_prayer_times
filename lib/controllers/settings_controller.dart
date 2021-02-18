@@ -1,8 +1,9 @@
 import 'package:get/get.dart';
-import 'package:muslim_prayer_times/models/config_model.dart';
-import 'package:muslim_prayer_times/models/notification_options_model.dart';
-import 'package:muslim_prayer_times/models/settings_model.dart';
-import 'package:muslim_prayer_times/services/hive_database_service.dart';
+
+import '../models/config_model.dart';
+import '../models/notification_options_model.dart';
+import '../models/settings_model.dart';
+import '../services/hive_database_service.dart';
 
 class SettingsController extends GetxController {
   final Rx<Settings> _settings = Rx<Settings>();
@@ -18,11 +19,16 @@ class SettingsController extends GetxController {
   }
 
   final Rx<Config> _defaultConfig = Rx<Config>();
-  Config get defaultConfig => _defaultConfig.value ?? _getDefaultConfigFromDatabase(defaultConfigId);
+  Config get defaultConfig {
+    return _defaultConfig.value
+        ?? _getDefaultConfigFromDatabase(defaultConfigId);
+  }
   set defaultConfig(Config config) => _defaultConfig.value = config;
 
   final Rx<String> _languageSelected = Rx<String>();
-  String get languageSelected => _languageSelected.value ?? HiveDatabaseService.getSelectedLanguage();
+  String get languageSelected {
+    return _languageSelected.value ?? HiveDatabaseService.getSelectedLanguage();
+  }
   set languageSelected(String languageSelected) {
     _languageSelected.value = languageSelected;
     settings.languageSelected = languageSelected;
@@ -41,8 +47,12 @@ class SettingsController extends GetxController {
     if (index == 1) languageSelected = "ar";
   }
 
+  // ignore: lines_longer_than_80_chars
   final Rx<List<NotificationOptions>> _defaultNotificationsOptions = Rx<List<NotificationOptions>>();
-  List<NotificationOptions> get defaultNotificationsOptions => _defaultNotificationsOptions.value ?? settings.notificationSaved;
+  List<NotificationOptions> get defaultNotificationsOptions {
+    return _defaultNotificationsOptions.value ?? settings.notificationSaved;
+  }
+  // ignore: lines_longer_than_80_chars
   set defaultNotificationsOptions(List<NotificationOptions> notificationsOptions) {
     _defaultNotificationsOptions.value = notificationsOptions;
     settings.notificationSaved = notificationsOptions;
@@ -50,7 +60,9 @@ class SettingsController extends GetxController {
   }
 
   final Rx<bool> _showSunriseTimeOption = Rx<bool>();
-  bool get showSunriseTimeOption => _showSunriseTimeOption.value ?? settings.showSunriseTime;
+  bool get showSunriseTimeOption {
+    return _showSunriseTimeOption.value ?? settings.showSunriseTime;
+  }
   set showSunriseTimeOption(bool showSunriseTimeOption) {
     _showSunriseTimeOption.value = showSunriseTimeOption;
     settings.showSunriseTime = showSunriseTimeOption;
@@ -58,7 +70,9 @@ class SettingsController extends GetxController {
   }
 
   final Rx<bool> _showImsakTimeOption = Rx<bool>();
-  bool get showImsakTimeOption => _showImsakTimeOption.value ?? settings.showImsakTime;
+  bool get showImsakTimeOption {
+    return _showImsakTimeOption.value ?? settings.showImsakTime;
+  }
   set showImsakTimeOption(bool showImsakTimeOption) {
     _showImsakTimeOption.value = showImsakTimeOption;
     settings.showImsakTime = showImsakTimeOption;
@@ -66,7 +80,9 @@ class SettingsController extends GetxController {
   }
 
   final Rx<bool> _showMidnightTimeOption = Rx<bool>();
-  bool get showMidnightTimeOption => _showMidnightTimeOption.value ?? settings.showMidnightTime;
+  bool get showMidnightTimeOption {
+    return _showMidnightTimeOption.value ?? settings.showMidnightTime;
+  }
   set showMidnightTimeOption(bool showMidnightTimeOption) {
     _showMidnightTimeOption.value = showMidnightTimeOption;
     settings.showMidnightTime = showMidnightTimeOption;
@@ -81,8 +97,13 @@ class SettingsController extends GetxController {
     HiveDatabaseService.setSettingsValue(value: settings);
   }
 
-  Config _getDefaultConfigFromDatabase(int id) => HiveDatabaseService.getConfig(id);
-  List<bool> _buildLanguagesList() => [languageSelected == "en", languageSelected == "ar"];
+  Config _getDefaultConfigFromDatabase(int id) {
+    return HiveDatabaseService.getConfig(id);
+  }
+
+  List<bool> _buildLanguagesList() {
+    return [languageSelected == "en", languageSelected == "ar"];
+  }
 
   void changeDefaultNotificationOptionList({int index, bool value}) {
     final List<NotificationOptions> newList = [];

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:muslim_prayer_times/controllers/config_form_controller.dart';
-import 'package:muslim_prayer_times/models/location_model.dart';
-import 'package:muslim_prayer_times/view/screens/get_location_screen.dart';
-import 'package:muslim_prayer_times/view/widgets/material_button.dart';
+
+import '../../controllers/config_form_controller.dart';
+import '../../models/location_model.dart';
+import '../screens/get_location_screen.dart';
+import 'material_button.dart';
 
 class ConfigLocationReadyWidgets extends StatelessWidget {
   final Location location;
@@ -67,7 +68,13 @@ class ConfigLocationReadyWidgets extends StatelessWidget {
           DefaultMaterialButton(
             text: "Pick another location",
             onPressed: () {
-              configFormController.location = Location(city: "", country: "", longitude: "", latitude: "");
+              configFormController.location = Location(
+                city: "",
+                country: "",
+                longitude: "",
+                latitude: ""
+              );
+
               configFormController.isLocationSet = false;
               Get.to(GetLocationScreen());
             }

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:muslim_prayer_times/models/config_model.dart';
-import 'package:muslim_prayer_times/view/constants/colors.dart';
-import 'package:muslim_prayer_times/view/screens/configs_screen.dart';
+
+import '../../models/config_model.dart';
+import '../constants/colors.dart';
+import '../screens/configs_screen.dart';
 
 class SettingsDefaultConfigListTileWidget extends StatelessWidget {
   final Config config;
@@ -22,7 +23,11 @@ class SettingsDefaultConfigListTileWidget extends StatelessWidget {
           style: const TextStyle(fontWeight: FontWeight.bold)
         ),
         tileColor: AppColors.accentColorLight,
-        shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(4))),
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(
+            Radius.circular(4)
+          )
+        ),
         trailing: const Icon(Icons.arrow_forward_ios),
         onTap: () => Get.to(ConfigsScreen(), arguments: {"configsExist" : true})
       )
