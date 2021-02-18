@@ -3,7 +3,9 @@ import 'package:get/get.dart';
 
 import '../../controllers/config_form_controller.dart';
 import '../../controllers/configs_controller.dart';
+import '../../models/config_method_enum_model.dart';
 import '../../models/config_model.dart';
+import '../../models/config_school_enum_model.dart';
 import '../constants/colors.dart';
 import '../widgets/app_bar.dart';
 import '../widgets/config_location_ready_widgets.dart';

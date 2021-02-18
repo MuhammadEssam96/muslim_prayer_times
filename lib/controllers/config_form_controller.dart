@@ -1,6 +1,8 @@
 import 'package:get/get.dart';
 
+import '../models/config_method_enum_model.dart';
 import '../models/config_model.dart';
+import '../models/config_school_enum_model.dart';
 import '../models/location_model.dart';
 
 class ConfigFormController extends GetxController {

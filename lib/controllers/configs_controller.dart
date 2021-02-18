@@ -14,7 +14,7 @@ class ConfigsController extends GetxController {
 
     final Map<int, Config> configs = {};
 
-    for (final Config config in configsList){
+    for (final Config config in configsList) {
       configs[config.id] = config;
     }
 
@@ -35,7 +35,7 @@ class ConfigsController extends GetxController {
 
     final Map<int, Config> configs = {};
 
-    for (final Config config in configsList){
+    for (final Config config in configsList) {
       configs[config.id] = config;
     }
 
@@ -52,7 +52,7 @@ class ConfigsController extends GetxController {
 
     final Map<int, Config> configs = {};
 
-    for (final Config config in configsList){
+    for (final Config config in configsList) {
       configs[config.id] = config;
     }
     
@@ -63,7 +63,7 @@ class ConfigsController extends GetxController {
   Future<void> setConfigAsDefault(Config config) async {
     final List<Config> newList = [];
 
-    for (final Config configElement in configsList){
+    for (final Config configElement in configsList) {
       newList.add(Config(
         id: configElement.id,
         location: configElement.location,
@@ -86,7 +86,7 @@ class ConfigsController extends GetxController {
 
     final Map<int, Config> configs = {};
 
-    for (final Config config in configsList){
+    for (final Config config in configsList) {
       configs[config.id] = config;
     }
 

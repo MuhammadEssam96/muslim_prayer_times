@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'app/muslim_prayer_times_app.dart';
+import 'models/config_method_enum_model.dart';
 import 'models/config_model.dart';
+import 'models/config_school_enum_model.dart';
 import 'models/location_model.dart';
 import 'models/notification_options_model.dart';
 import 'models/prayer_enum_model.dart';
