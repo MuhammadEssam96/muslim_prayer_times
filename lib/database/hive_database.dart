@@ -19,34 +19,34 @@ class HiveDatabase {
   static Box<T> _getBoxWithType<T>(String boxName) => Hive.box<T>(boxName);
 
   //Get value functions
-  static dynamic getValueFromBox({
-    String boxName,
-    String key,
+  static dynamic? getValueFromBox({
+    required String boxName,
+    required String key,
     dynamic defaultValue
   }) {
     return _getBox(boxName).get(key, defaultValue: defaultValue);
   }
 
   static T getTypedValueFromBox<T>({
-    String boxName,
-    String key,
-    T defaultValue
+    required String boxName,
+    required String key,
+    required T defaultValue
   }) {
     return _getBox(boxName).get(key, defaultValue: defaultValue) as T;
   }
 
-  static T getTypedValueFromTypedBox<T>({
-    String boxName,
-    String key,
-    T defaultValue
+  static T? getTypedValueFromTypedBox<T>({
+    required String boxName,
+    required String key,
+    required T defaultValue
   }) {
     return _getBoxWithType<T>(boxName).get(key, defaultValue: defaultValue);
   }
 
-  static T getTypedValueFromTypedBoxWithIntKey<T>({
-    String boxName,
-    int key,
-    T defaultValue
+  static T? getTypedValueFromTypedBoxWithIntKey<T>({
+    required String boxName,
+    required int key,
+    required T? defaultValue
   }) {
     return _getBoxWithType<T>(boxName).get(key, defaultValue: defaultValue);
   }
@@ -61,51 +61,63 @@ class HiveDatabase {
   }
 
   //Add value functions
-  static Future<void> addObjectToBox<T>({String boxName, T value}) {
+  static Future<void> addObjectToBox<T>({
+    required String boxName,
+    required T value
+  }) {
     return _getBoxWithType<T>(boxName).add(value);
   }
 
-  static Future<void> addValueToBox({String boxName, dynamic value}) {
+  static Future<void> addValueToBox({
+    required String boxName,
+    dynamic value
+  }) {
     return _getBox(boxName).add(value);
   }
 
   static Future<void> addValueWithKeyToBox({
-    String boxName,
-    String key,
+    required String boxName,
+    required String key,
     dynamic value
   }) {
     return _getBox(boxName).put(key, value);
   }
 
   static Future<void> addObjectWithKeyToBox<T>({
-    String boxName,
-    String key,
-    T value
+    required String boxName,
+    required String key,
+    required T value
   }) {
     return _getBox(boxName).put(key, value);
   }
 
   //Add all values functions
-  static Future<void> addAllObjectsToBox<T>({String boxName, List<T> values}) {
+  static Future<void> addAllObjectsToBox<T>({
+    required String boxName,
+    required List<T> values
+  }) {
     return _getBoxWithType<T>(boxName).addAll(values);
   }
 
   static Future<void> addAllObjectsWithKeysToBox<T>({
-    String boxName,
-    Map<int, T> values
+    required String boxName,
+    required Map<int, T> values
   }) {
     return _getBoxWithType<T>(boxName).putAll(values);
   }
 
   static Future<void> addAllValuesToBox({
-    String boxName,
-    List<dynamic> values
+    required String boxName,
+    required List<dynamic> values
   }) {
     return _getBox(boxName).addAll(values);
   }
 
   //Delete value functions
-  static Future<void> deleteValueFromBox({String boxName, String key}) {
+  static Future<void> deleteValueFromBox({
+    required String boxName,
+    required String key
+  }) {
     return _getBox(boxName).delete(key);
   }
 
@@ -119,11 +131,17 @@ class HiveDatabase {
   }
 
   //Check if keys exists
-  static bool checkIfKeyExistsInBox({String boxName, String key}) {
+  static bool checkIfKeyExistsInBox({
+    required String boxName,
+    required String key
+  }) {
     return _getBox(boxName).containsKey(key);
   }
 
-  static bool checkIfKeyExistsInTypedBox<T>({String boxName, int key}) {
+  static bool checkIfKeyExistsInTypedBox<T>({
+    required String boxName,
+    required int key
+  }) {
     return _getBoxWithType<T>(boxName).containsKey(key);
   }
 }

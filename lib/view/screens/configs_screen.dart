@@ -15,8 +15,7 @@ import 'home_screen.dart';
 class ConfigsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final Map<String, dynamic> arguments = Get
-        .arguments as Map<String, dynamic>;
+    final Map<String, dynamic> arguments = Get.arguments as Map<String, dynamic>;
 
     final bool configsExist = arguments["configsExist"] as bool;
 

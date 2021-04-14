@@ -22,9 +22,8 @@ class PrayerAdapter extends TypeAdapter<Prayer> {
       case 3:
         return Prayer.maghrib;
       case 4:
-        return Prayer.isha;
       default:
-        return null;
+        return Prayer.isha;
     }
   }
 
@@ -54,6 +53,9 @@ class PrayerAdapter extends TypeAdapter<Prayer> {
 
   @override
   bool operator ==(Object other) {
-    return identical(this, other) || other is PrayerAdapter && runtimeType == other.runtimeType && typeId == other.typeId;
+    return identical(this, other)
+        || other is PrayerAdapter
+            && runtimeType == other.runtimeType
+            && typeId == other.typeId;
   }
 }

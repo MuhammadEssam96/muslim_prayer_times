@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:location_permissions/location_permissions.dart';
+import 'package:location/location.dart' show PermissionStatus;
 
 import '../../controllers/location_controller.dart';
 import '../../models/location_model.dart';
@@ -9,8 +9,6 @@ import '../widgets/app_bar.dart';
 import '../widgets/confirm_location_widgets.dart';
 import '../widgets/getting_location_loading_widgets.dart';
 import '../widgets/request_location_permission_widgets.dart';
-
-//ignore_for_file: lines_longer_than_80_chars
 
 class GetLocationScreen extends StatelessWidget {
   @override
@@ -25,14 +23,14 @@ class GetLocationScreen extends StatelessWidget {
             init: LocationController(),
             builder: (controller) {
               switch (controller.permissionStatus) {
+                case PermissionStatus.deniedForever:
                 case PermissionStatus.denied:
-                case PermissionStatus.unknown:
-                case PermissionStatus.restricted:
                   return RequestLocationPermissionWidgets(controller.permissionStatus);
+                case PermissionStatus.grantedLimited:
                 case PermissionStatus.granted:
                   if (controller.locationIsLoading) return const GettingLocationLoadingWidgets();
                   if (controller.locationData != null) {
-                    final Location location = controller.location;
+                    final Location location = controller.location!;
                     if (location.isLocationEmpty(location)) {
                       return const GettingLocationLoadingWidgets();
                     } else {

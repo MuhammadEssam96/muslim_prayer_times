@@ -17,20 +17,10 @@ class Location {
   String longitude;
 
   Location({
-    this.city,
-    this.country,
-    this.latitude,
-    this.longitude
-  });
-
-  Location.latAndLong({
-    this.latitude,
-    this.longitude
-  });
-
-  Location.cityAndCountry({
-    this.city,
-    this.country
+    required this.city,
+    required this.country,
+    required this.latitude,
+    required this.longitude
   });
 
   bool isLocationEmpty(Location location) {

@@ -1,14 +1,16 @@
 import 'dart:io' show Platform;
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:muslim_prayer_times/view/constants/colors.dart';
-import 'package:muslim_prayer_times/view/screens/settings_screen.dart';
+
+import '../constants/colors.dart';
+import '../screens/settings_screen.dart';
 
 class DefaultAppBar {
-  static AppBar appBar({String title}){
+  static AppBar appBar({required String title}){
     return AppBar(
       backgroundColor: AppColors.primaryColorLight,
-      elevation: 0.0,
+
       brightness: Brightness.light,
       title: Text(
         title,
@@ -22,10 +24,13 @@ class DefaultAppBar {
     );
   }
 
-  static AppBar appBarWithBackButton({String title, VoidCallback onBackButtonPressed}){
+  static AppBar appBarWithBackButton({
+    required String title,
+    required VoidCallback onBackButtonPressed
+  }){
     return AppBar(
       backgroundColor: AppColors.primaryColorLight,
-      elevation: 0.0,
+
       brightness: Brightness.light,
       title: Text(
         title,
@@ -43,10 +48,10 @@ class DefaultAppBar {
     );
   }
 
-  static AppBar appBarWithSettingsIcon({String title}){
+  static AppBar homeScreenAppBar({required String title}){
     return AppBar(
       backgroundColor: AppColors.primaryColorLight,
-      elevation: 0.0,
+
       brightness: Brightness.light,
       title: Text(
         title,

@@ -6,32 +6,24 @@ import '../models/config_school_enum_model.dart';
 import '../models/location_model.dart';
 
 class ConfigFormController extends GetxController {
-  final Rx<Location> _location = Rx<Location>();
-  Location get location {
-    return _location.value ?? Location.cityAndCountry(city: "", country: "");
-  }
-  set location(Location location) => _location.value = location;
+  final Rxn<Location> _location = Rxn<Location>();
+  Location? get location => _location.value;
+  set location(Location? location) => _location.value = location;
 
-  final Rx<bool> _isLocationSet = Rx<bool>();
-  bool get isLocationSet => _isLocationSet.value ?? false;
+  final Rx<bool> _isLocationSet = Rx<bool>(false);
+  bool get isLocationSet => _isLocationSet.value;
   set isLocationSet(bool isLocationSet) => _isLocationSet.value = isLocationSet;
 
-  final Rx<ConfigMethod> _configMethod = Rx<ConfigMethod>();
-  ConfigMethod get configMethod {
-    return _configMethod.value ?? _getDefaultConfigMethod();
-  }
-  set configMethod(ConfigMethod configMethod) {
-    _configMethod.value = configMethod;
-  }
+  final Rxn<ConfigMethod> _configMethod = Rxn<ConfigMethod>();
+  ConfigMethod get configMethod => _configMethod.value ?? _getDefaultConfigMethod();
+  set configMethod(ConfigMethod configMethod) =>_configMethod.value = configMethod;
 
-  final Rx<ConfigSchool> _configSchool = Rx<ConfigSchool>();
-  ConfigSchool get configSchool => _configSchool.value ?? ConfigSchool.shafi;
-  set configSchool(ConfigSchool configSchool) {
-    _configSchool.value = configSchool;
-  }
+  final Rx<ConfigSchool> _configSchool = Rx<ConfigSchool>(ConfigSchool.shafi);
+  ConfigSchool get configSchool => _configSchool.value;
+  set configSchool(ConfigSchool configSchool) => _configSchool.value = configSchool;
 
-  final Rx<String> _configName = Rx<String>();
-  String get configName => _configName.value ?? "";
+  final Rx<String> _configName = Rx<String>("");
+  String get configName => _configName.value;
   set configName(String configName) => _configName.value = configName;
 
   ConfigFormController();
@@ -46,7 +38,7 @@ class ConfigFormController extends GetxController {
 
   ConfigMethod _getDefaultConfigMethod() {
     if (isLocationSet) {
-      final String country = location.country.toLowerCase().trim();
+      final String country = location!.country.toLowerCase().trim();
 
       if (country.contains("pakistan")) {
         return ConfigMethod.universityOfIslamicSciencesKarachi;

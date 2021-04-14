@@ -16,9 +16,9 @@ class NotificationOptions {
   final bool isEnabled;
 
   const NotificationOptions({
-    this.prayer,
-    this.timeDifference,
-    this.isEnabled
+    required this.prayer,
+    required this.timeDifference,
+    required this.isEnabled
   });
 
   static const List<NotificationOptions> defaultNotificationOptions = [

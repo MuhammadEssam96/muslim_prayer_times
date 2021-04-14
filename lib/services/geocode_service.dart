@@ -3,7 +3,7 @@ import 'package:geocode/geocode.dart';
 import '../repositories/secrets_repository.dart';
 
 class GeoCodeService {
-  static Future<Address> reverseGeocoding({double latitude, double longitude}) {
+  static Future<Address> reverseGeocoding({required double latitude, required double longitude}) {
     final GeoCode geoCode = GeoCode(apiKey: SecretsRepository.geoCodeXYZAPIKey);
 
     try {

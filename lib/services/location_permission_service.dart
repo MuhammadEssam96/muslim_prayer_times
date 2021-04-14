@@ -1,11 +1,11 @@
-import 'package:location_permissions/location_permissions.dart';
+import 'package:location/location.dart';
 
 class LocationPermissionService {
   static Future<PermissionStatus> checkPermissionStatus() {
-    return LocationPermissions().checkPermissionStatus();
+    return Location().hasPermission();
   }
 
   static Future<PermissionStatus> requestLocationPermission() {
-    return LocationPermissions().requestPermissions();
+    return Location().requestPermission();
   }
 }

@@ -6,11 +6,11 @@ import '../models/settings_model.dart';
 import '../services/hive_database_service.dart';
 
 class SettingsController extends GetxController {
-  final Rx<Settings> _settings = Rx<Settings>();
-  Settings get settings => _settings.value ?? Settings.defaultSettings;
+  final Rx<Settings> _settings = Rx<Settings>(Settings.defaultSettings);
+  Settings get settings => _settings.value;
   set settings(Settings settings) => _settings.value = settings;
 
-  final Rx<int> _defaultConfigId = Rx<int>();
+  final Rxn<int> _defaultConfigId = Rxn<int>();
   int get defaultConfigId => _defaultConfigId.value ?? settings.defaultConfigId;
   set defaultConfigId(int defaultConfigId) {
     _defaultConfigId.value = defaultConfigId;
@@ -18,17 +18,15 @@ class SettingsController extends GetxController {
     HiveDatabaseService.setSettingsValue(value: settings);
   }
 
-  final Rx<Config> _defaultConfig = Rx<Config>();
+  final Rxn<Config> _defaultConfig = Rxn<Config>();
   Config get defaultConfig {
     return _defaultConfig.value
         ?? _getDefaultConfigFromDatabase(defaultConfigId);
   }
   set defaultConfig(Config config) => _defaultConfig.value = config;
 
-  final Rx<String> _languageSelected = Rx<String>();
-  String get languageSelected {
-    return _languageSelected.value ?? HiveDatabaseService.getSelectedLanguage();
-  }
+  final Rx<String> _languageSelected = Rx<String>(HiveDatabaseService.getSelectedLanguage());
+  String get languageSelected => _languageSelected.value;
   set languageSelected(String languageSelected) {
     _languageSelected.value = languageSelected;
     settings.languageSelected = languageSelected;
@@ -36,7 +34,7 @@ class SettingsController extends GetxController {
     HiveDatabaseService.setDefaultLanguageValue(value: languageSelected);
   }
 
-  final Rx<List<bool>> _languagesList = Rx<List<bool>>();
+  final Rxn<List<bool>> _languagesList = Rxn<List<bool>>();
   List<bool> get languagesList => _languagesList.value ?? _buildLanguagesList();
   void setLanguagesList(int index) {
     _languagesList.value = [
@@ -47,19 +45,17 @@ class SettingsController extends GetxController {
     if (index == 1) languageSelected = "ar";
   }
 
-  // ignore: lines_longer_than_80_chars
-  final Rx<List<NotificationOptions>> _defaultNotificationsOptions = Rx<List<NotificationOptions>>();
+  final Rxn<List<NotificationOptions>> _defaultNotificationsOptions = Rxn<List<NotificationOptions>>();
   List<NotificationOptions> get defaultNotificationsOptions {
     return _defaultNotificationsOptions.value ?? settings.notificationSaved;
   }
-  // ignore: lines_longer_than_80_chars
   set defaultNotificationsOptions(List<NotificationOptions> notificationsOptions) {
     _defaultNotificationsOptions.value = notificationsOptions;
     settings.notificationSaved = notificationsOptions;
     HiveDatabaseService.setSettingsValue(value: settings);
   }
 
-  final Rx<bool> _showSunriseTimeOption = Rx<bool>();
+  final Rxn<bool> _showSunriseTimeOption = Rxn<bool>();
   bool get showSunriseTimeOption {
     return _showSunriseTimeOption.value ?? settings.showSunriseTime;
   }
@@ -69,7 +65,7 @@ class SettingsController extends GetxController {
     HiveDatabaseService.setSettingsValue(value: settings);
   }
 
-  final Rx<bool> _showImsakTimeOption = Rx<bool>();
+  final Rxn<bool> _showImsakTimeOption = Rxn<bool>();
   bool get showImsakTimeOption {
     return _showImsakTimeOption.value ?? settings.showImsakTime;
   }
@@ -79,7 +75,7 @@ class SettingsController extends GetxController {
     HiveDatabaseService.setSettingsValue(value: settings);
   }
 
-  final Rx<bool> _showMidnightTimeOption = Rx<bool>();
+  final Rxn<bool> _showMidnightTimeOption = Rxn<bool>();
   bool get showMidnightTimeOption {
     return _showMidnightTimeOption.value ?? settings.showMidnightTime;
   }
@@ -89,7 +85,7 @@ class SettingsController extends GetxController {
     HiveDatabaseService.setSettingsValue(value: settings);
   }
 
-  final Rx<bool> _darkModeOption = Rx<bool>();
+  final Rxn<bool> _darkModeOption = Rxn<bool>();
   bool get darkModeOption => _darkModeOption.value ?? settings.darkMode;
   set darkModeOption(bool darkModeOption) {
     _darkModeOption.value = darkModeOption;
@@ -98,14 +94,17 @@ class SettingsController extends GetxController {
   }
 
   Config _getDefaultConfigFromDatabase(int id) {
-    return HiveDatabaseService.getConfig(id);
+    return HiveDatabaseService.getConfig(id)!;
   }
 
   List<bool> _buildLanguagesList() {
     return [languageSelected == "en", languageSelected == "ar"];
   }
 
-  void changeDefaultNotificationOptionList({int index, bool value}) {
+  void changeDefaultNotificationOptionList({
+    required int index,
+    required bool value
+  }) {
     final List<NotificationOptions> newList = [];
     for (final notificationOption in defaultNotificationsOptions) {
       if (index == defaultNotificationsOptions.indexOf(notificationOption)) {

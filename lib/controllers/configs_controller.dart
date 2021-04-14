@@ -30,7 +30,10 @@ class ConfigsController extends GetxController {
     }
   }
 
-  Future<void> editConfig({Config oldConfig, Config newConfig}) async {
+  Future<void> editConfig({
+    required Config oldConfig,
+    required Config newConfig
+  }) async {
     configsList[configsList.indexOf(oldConfig)] = newConfig;
 
     final Map<int, Config> configs = {};
@@ -74,8 +77,7 @@ class ConfigsController extends GetxController {
       ));
       final Config currentConfig = newList[configsList.indexOf(configElement)];
       if (currentConfig.isDefault) {
-        await HiveDatabaseService
-            .setDefaultConfigIDValue(value: currentConfig.id);
+        await HiveDatabaseService.setDefaultConfigIDValue(value: currentConfig.id);
 
         Get.put(SettingsController()).defaultConfigId = currentConfig.id;
       }
@@ -110,9 +112,7 @@ class ConfigsController extends GetxController {
 
   @override
   void onInit() {
-    final List<Config> storedConfigs = HiveDatabaseService
-        .getAllConfigs() ?? [];
-
+    final List<Config> storedConfigs = HiveDatabaseService.getAllConfigs();
     configsList.addAll(storedConfigs);
     super.onInit();
   }

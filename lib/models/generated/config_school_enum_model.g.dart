@@ -10,9 +10,8 @@ class ConfigSchoolAdapter extends TypeAdapter<ConfigSchool> {
       case 0:
         return ConfigSchool.shafi;
       case 1:
-        return ConfigSchool.hanafi;
       default:
-        return null;
+        return ConfigSchool.hanafi;
     }
   }
 
@@ -33,6 +32,9 @@ class ConfigSchoolAdapter extends TypeAdapter<ConfigSchool> {
 
   @override
   bool operator ==(Object other) {
-    return identical(this, other) || other is ConfigSchoolAdapter && runtimeType == other.runtimeType && typeId == other.typeId;
+    return identical(this, other)
+        || other is ConfigSchoolAdapter
+            && runtimeType == other.runtimeType
+            && typeId == other.typeId;
   }
 }

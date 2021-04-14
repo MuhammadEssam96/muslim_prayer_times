@@ -43,6 +43,9 @@ class LocationAdapter extends TypeAdapter<Location> {
 
   @override
   bool operator == (Object other) {
-    return identical(this, other) || other is LocationAdapter && runtimeType == other.runtimeType && typeId == other.typeId;
+    return identical(this, other)
+        || other is LocationAdapter
+            && runtimeType == other.runtimeType
+            && typeId == other.typeId;
   }
 }

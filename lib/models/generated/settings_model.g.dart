@@ -19,7 +19,7 @@ class SettingsAdapter extends TypeAdapter<Settings> {
     return Settings(
       defaultConfigId: fields[0] as int,
       languageSelected: fields[1] as String,
-      notificationSaved: (fields[2] as List)?.cast<NotificationOptions>(),
+      notificationSaved: (fields[2] as List).cast<NotificationOptions>(),
       showSunriseTime: fields[3] as bool,
       showImsakTime: fields[4] as bool,
       showMidnightTime: fields[5] as bool,
@@ -52,6 +52,9 @@ class SettingsAdapter extends TypeAdapter<Settings> {
 
   @override
   bool operator ==(Object other) {
-    return identical(this, other) || other is SettingsAdapter && runtimeType == other.runtimeType && typeId == other.typeId;
+    return identical(this, other)
+        || other is SettingsAdapter
+            && runtimeType == other.runtimeType
+            && typeId == other.typeId;
   }
 }

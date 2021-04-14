@@ -9,8 +9,6 @@ import '../../controllers/location_controller.dart';
 import '../../models/location_model.dart';
 import 'material_button.dart';
 
-//ignore_for_file: lines_longer_than_80_chars
-
 class ConfirmLocationWidgets extends StatelessWidget {
   final Location location;
   final Completer<GoogleMapController> _controller = Completer();
@@ -108,11 +106,14 @@ class ConfirmLocationWidgets extends StatelessWidget {
             }
           ),
           const SizedBox(height: 8.0),
-          FlatButton(
-            height: 48,
-            minWidth: Get.width * 0.50,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(48)
+          TextButton(
+            style: ButtonStyle(
+              minimumSize: MaterialStateProperty.all<Size>(Size(Get.size.width * 0.50, 48)),
+              shape: MaterialStateProperty.all<OutlinedBorder?>(
+                RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(48)
+                )
+              )
             ),
             onPressed: () async => Get.find<LocationController>().getLocation(),
             child: const Text("Refresh")

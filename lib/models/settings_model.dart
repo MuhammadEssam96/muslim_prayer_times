@@ -29,13 +29,13 @@ class Settings {
   bool darkMode;
 
   Settings({
-    this.defaultConfigId,
-    this.languageSelected,
-    this.notificationSaved,
-    this.showSunriseTime,
-    this.showImsakTime,
-    this.showMidnightTime,
-    this.darkMode
+    required this.defaultConfigId,
+    required this.languageSelected,
+    required this.notificationSaved,
+    required this.showSunriseTime,
+    required this.showImsakTime,
+    required this.showMidnightTime,
+    required this.darkMode
   });
 
   static Settings defaultSettings = Settings(

@@ -1,4 +1,4 @@
-part of '../config_method_enum_model.dart'
+part of '../config_method_enum_model.dart';
 
 class ConfigMethodAdapter extends TypeAdapter<ConfigMethod> {
   @override
@@ -15,8 +15,6 @@ class ConfigMethodAdapter extends TypeAdapter<ConfigMethod> {
         return ConfigMethod.muslimWorldLeague;
       case 3:
         return ConfigMethod.ummAlQuraUniversityMakkah;
-      case 4:
-        return ConfigMethod.egyptianGeneralAuthorityOfSurvey;
       case 5:
         return ConfigMethod.instituteOfGeophysicsUniversityOfTehran;
       case 6:
@@ -33,8 +31,9 @@ class ConfigMethodAdapter extends TypeAdapter<ConfigMethod> {
         return ConfigMethod.diyanetIsleriBaskanligiTurkey;
       case 12:
         return ConfigMethod.spiritualAdministrationOfMuslimsOfRussia;
+      case 4:
       default:
-        return null;
+        return ConfigMethod.egyptianGeneralAuthorityOfSurvey;
     }
   }
 
@@ -88,6 +87,9 @@ class ConfigMethodAdapter extends TypeAdapter<ConfigMethod> {
 
   @override
   bool operator ==(Object other) {
-    return identical(this, other) || other is ConfigMethodAdapter && runtimeType == other.runtimeType && typeId == other.typeId;
+    return identical(this, other)
+        || other is ConfigMethodAdapter
+            && runtimeType == other.runtimeType
+            && typeId == other.typeId;
   }
 }

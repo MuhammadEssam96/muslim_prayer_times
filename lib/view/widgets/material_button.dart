@@ -7,7 +7,7 @@ class DefaultMaterialButton extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
 
-  const DefaultMaterialButton({this.text, this.onPressed});
+  const DefaultMaterialButton({required this.text, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {

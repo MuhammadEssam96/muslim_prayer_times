@@ -12,8 +12,6 @@ import '../widgets/config_location_ready_widgets.dart';
 import '../widgets/material_button.dart';
 import 'get_location_screen.dart';
 
-// ignore_for_file: lines_longer_than_80_chars
-
 class AddConfigScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -58,7 +56,7 @@ class AddConfigScreen extends StatelessWidget {
                               )
                             ]
                           ),
-                          if (controller.isLocationSet) ConfigLocationReadyWidgets(controller.location) else DefaultMaterialButton(text: "Get Location", onPressed: () => Get.to(GetLocationScreen()))
+                          if (controller.isLocationSet) ConfigLocationReadyWidgets(controller.location!) else DefaultMaterialButton(text: "Get Location", onPressed: () => Get.to(GetLocationScreen()))
                         ]
                       ),
                       const SizedBox(height: 16.0),
@@ -150,7 +148,7 @@ class AddConfigScreen extends StatelessWidget {
                                     child: Text("Spiritual Administration of Muslims of Russia")
                                   )
                                 ],
-                                onChanged: (ConfigMethod method) => controller.configMethod = method
+                                onChanged: (ConfigMethod? method) => controller.configMethod = method!
                               )
                             )
                           )
@@ -201,7 +199,7 @@ class AddConfigScreen extends StatelessWidget {
                                     child: Text("Hanafi")
                                   )
                                 ],
-                                onChanged: (ConfigSchool school) => controller.configSchool = school
+                                onChanged: (ConfigSchool? school) => controller.configSchool = school!
                               )
                             )
                           )
@@ -244,8 +242,8 @@ class AddConfigScreen extends StatelessWidget {
                               errorStyle: TextStyle(fontWeight: FontWeight.bold)
                             ),
                             keyboardType: TextInputType.text,
-                            validator: (value) {
-                              if (configsController.checkIfNameExists(value)) {
+                            validator: (String? value) {
+                              if (configsController.checkIfNameExists(value!)) {
                                 return "Name already exists.\nPlease pick another unique name.";
                               }
                               if (value.isEmpty) {
@@ -254,7 +252,7 @@ class AddConfigScreen extends StatelessWidget {
                                 return null;
                               }
                             },
-                            onSaved: (value) => controller.configName = value
+                            onSaved: (String? value) => controller.configName = value!
                           )
                         )
                       ),
@@ -262,12 +260,12 @@ class AddConfigScreen extends StatelessWidget {
                       DefaultMaterialButton(
                         text: "Save configuration",
                         onPressed: () async {
-                          if (formKey.currentState.validate() && controller.isLocationSet){
-                            formKey.currentState.save();
+                          if (formKey.currentState!.validate() && controller.isLocationSet){
+                            formKey.currentState?.save();
 
                             final Config config = Config(
                               id: configsController.getValidUniqueID(),
-                              location: controller.location,
+                              location: controller.location!,
                               method: controller.configMethod,
                               school: controller.configSchool,
                               isDefault: configsController.configsList.isEmpty,

@@ -8,8 +8,6 @@ import '../constants/colors.dart';
 import '../widgets/app_bar.dart';
 import '../widgets/settings_default_config_list_tile_widget.dart';
 
-//ignore_for_file: lines_longer_than_80_chars
-
 class SettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -158,7 +156,7 @@ class SettingsScreen extends StatelessWidget {
                         children: controller.defaultNotificationsOptions.map((notificationOption) {
                           return SwitchListTile(
                             title: Text(
-                              prayer.names[notificationOption.prayer],
+                              prayer.names[notificationOption.prayer]!,
                               style: const TextStyle(
                                 color: AppColors.primaryColorDark,
                                 fontSize: 16

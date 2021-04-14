@@ -6,8 +6,6 @@ import '../../services/hive_database_service.dart';
 import '../constants/colors.dart';
 import 'configs_screen.dart';
 
-//ignore_for_file: lines_longer_than_80_chars
-
 class IntroScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

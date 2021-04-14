@@ -1,7 +1,6 @@
 import 'package:geocode/geocode.dart';
 import 'package:get/get.dart';
-import 'package:location/location.dart' show LocationData;
-import 'package:location_permissions/location_permissions.dart';
+import 'package:location/location.dart' show LocationData, PermissionStatus;
 
 import '../models/location_model.dart';
 import '../services/geocode_service.dart';
@@ -9,35 +8,30 @@ import '../services/location_permission_service.dart';
 import '../services/location_service.dart';
 
 class LocationController extends GetxController {
-  final Rx<PermissionStatus> _permissionStatus = Rx<PermissionStatus>();
-  PermissionStatus get permissionStatus {
-    return _permissionStatus.value ?? PermissionStatus.unknown;
-  }
+  final Rx<PermissionStatus> _permissionStatus = Rx<PermissionStatus>(PermissionStatus.denied);
+  PermissionStatus get permissionStatus => _permissionStatus.value;
   set permissionStatus(PermissionStatus permissionStatus) {
     _permissionStatus.value = permissionStatus;
   }
 
-  final Rx<LocationData> _locationData = Rx<LocationData>();
-  LocationData get locationData => _locationData.value;
-  set locationData(LocationData locationData) {
+  final Rxn<LocationData> _locationData = Rxn<LocationData>();
+  LocationData? get locationData => _locationData.value;
+  set locationData(LocationData? locationData) {
     _locationData.value = locationData;
   }
 
-  final Rx<Location> _location = Rx<Location>();
-  Location get location {
-    return _location.value
-        ?? Location(city: "", country: "", latitude: "", longitude: "");
-  }
-  set location(Location location) => _location.value = location;
+  final Rxn<Location> _location = Rxn<Location>();
+  Location? get location => _location.value;
+  set location(Location? location) => _location.value = location;
 
-  final Rx<bool> _locationIsLoading = Rx<bool>();
-  bool get locationIsLoading => _locationIsLoading.value ?? false;
+  final Rx<bool> _locationIsLoading = Rx<bool>(false);
+  bool get locationIsLoading => _locationIsLoading.value;
   set locationIsLoading(bool locationIsLoading) {
     _locationIsLoading.value = locationIsLoading;
   }
 
-  final Rx<bool> _locationIsLoaded = Rx<bool>();
-  bool get locationIsLoaded => _locationIsLoaded.value ?? false;
+  final Rx<bool> _locationIsLoaded = Rx<bool>(false);
+  bool get locationIsLoaded => _locationIsLoaded.value;
   set locationIsLoaded(bool locationIsLoaded) {
     _locationIsLoaded.value = locationIsLoaded;
   }
@@ -53,8 +47,7 @@ class LocationController extends GetxController {
   }
 
   Future<void> requestLocationPermission() async {
-    permissionStatus = await LocationPermissionService
-        .requestLocationPermission();
+    permissionStatus = await LocationPermissionService.requestLocationPermission();
   }
 
   Future<void> getLocation() async {
@@ -63,17 +56,16 @@ class LocationController extends GetxController {
       const Duration(seconds: 3),
       () async {
         locationData = await LocationService.getLocation();
-        final Address address = await GeoCodeService
-            .reverseGeocoding(
-              latitude: locationData.latitude,
-              longitude: locationData.longitude
-            );
+        final Address address = await GeoCodeService.reverseGeocoding(
+          latitude: locationData!.latitude!,
+          longitude: locationData!.longitude!
+        );
 
         location = Location(
-          city: address.city,
-          country: address.countryName,
-          latitude: locationData.latitude.toString(),
-          longitude: locationData.longitude.toString()
+          city: address.city!,
+          country: address.countryName!,
+          latitude: locationData!.latitude.toString(),
+          longitude: locationData!.longitude.toString()
         );
       }
     );

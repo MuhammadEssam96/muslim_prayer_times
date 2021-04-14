@@ -14,27 +14,27 @@ class ConfigLocationReadyWidgets extends StatelessWidget {
   Widget build(BuildContext context) {
     final configFormController = Get.find<ConfigFormController>();
     return Expanded(
-      child: Column(
-        children: [
-          Text(
-            location.city,
-            style: const TextStyle(
-              fontSize: 20.0,
-              fontWeight: FontWeight.bold
-            )
-          ),
-          Text(
-            location.country,
-            style: const TextStyle(
-              fontSize: 20.0,
-              fontWeight: FontWeight.bold
-            )
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: Row(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            Text(
+              location.city,
+              style: const TextStyle(
+                fontSize: 20.0,
+                fontWeight: FontWeight.bold
+              )
+            ),
+            Text(
+              location.country,
+              style: const TextStyle(
+                fontSize: 20.0,
+                fontWeight: FontWeight.bold
+              )
+            ),
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.baseline,
+              // crossAxisAlignment: CrossAxisAlignment.baseline,
               children: [
                 const Text(
                   "Latitude: ",
@@ -45,13 +45,10 @@ class ConfigLocationReadyWidgets extends StatelessWidget {
                   style: const TextStyle(fontSize: 16.0)
                 )
               ]
-            )
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: Row(
+            ),
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.baseline,
+              // crossAxisAlignment: CrossAxisAlignment.baseline,
               children: [
                 const Text(
                   "Longitude: ",
@@ -62,24 +59,24 @@ class ConfigLocationReadyWidgets extends StatelessWidget {
                   style: const TextStyle(fontSize: 16.0),
                 )
               ]
-            )
-          ),
-          const SizedBox(height: 8.0),
-          DefaultMaterialButton(
-            text: "Pick another location",
-            onPressed: () {
-              configFormController.location = Location(
-                city: "",
-                country: "",
-                longitude: "",
-                latitude: ""
-              );
+            ),
+            const SizedBox(height: 8.0),
+            DefaultMaterialButton(
+              text: "Pick another location",
+              onPressed: () {
+                configFormController.location = Location(
+                  city: "",
+                  country: "",
+                  longitude: "",
+                  latitude: ""
+                );
 
-              configFormController.isLocationSet = false;
-              Get.to(GetLocationScreen());
-            }
-          )
-        ]
+                configFormController.isLocationSet = false;
+                Get.to(GetLocationScreen());
+              }
+            )
+          ]
+        ),
       )
     );
   }

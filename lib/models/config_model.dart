@@ -27,11 +27,11 @@ class Config {
   final String name;
 
   const Config({
-    this.id,
-    this.location,
-    this.method,
-    this.school,
-    this.isDefault,
-    this.name
+    required this.id,
+    required this.location,
+    required this.method,
+    required this.school,
+    required this.isDefault,
+    required this.name
   });
 }

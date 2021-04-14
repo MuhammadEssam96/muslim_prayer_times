@@ -12,8 +12,6 @@ import '../widgets/config_location_ready_widgets.dart';
 import '../widgets/material_button.dart';
 import 'get_location_screen.dart';
 
-//ignore_for_file: lines_longer_than_80_chars
-
 class EditConfigScreen extends StatelessWidget {
   final Config config;
   const EditConfigScreen(this.config);
@@ -61,7 +59,7 @@ class EditConfigScreen extends StatelessWidget {
                               )
                             ]
                           ),
-                          if (controller.isLocationSet) ConfigLocationReadyWidgets(controller.location) else DefaultMaterialButton(text: "Get Location", onPressed: () => Get.to(GetLocationScreen()))
+                          if (controller.isLocationSet) ConfigLocationReadyWidgets(controller.location!) else DefaultMaterialButton(text: "Get Location", onPressed: () => Get.to(GetLocationScreen()))
                         ]
                       ),
                       const SizedBox(height: 16.0),
@@ -153,7 +151,7 @@ class EditConfigScreen extends StatelessWidget {
                                     child: Text("Spiritual Administration of Muslims of Russia")
                                   )
                                 ],
-                                onChanged: (ConfigMethod method) => controller.configMethod = method
+                                onChanged: (ConfigMethod? method) => controller.configMethod = method!
                               )
                             )
                           )
@@ -204,7 +202,7 @@ class EditConfigScreen extends StatelessWidget {
                                     child: Text("Hanafi")
                                   )
                                 ],
-                                onChanged: (ConfigSchool school) => controller.configSchool = school
+                                onChanged: (ConfigSchool? school) => controller.configSchool = school!
                               )
                             )
                           )
@@ -249,8 +247,8 @@ class EditConfigScreen extends StatelessWidget {
                             ),
                             keyboardType: TextInputType.text,
                             initialValue: config.name,
-                            validator: (value) => value.isEmpty ? "Configuration name can't be empty!ً" : null,
-                            onSaved: (value) => controller.configName = value
+                            validator: (String? value) => value!.isEmpty ? "Configuration name can't be empty!ً" : null,
+                            onSaved: (String? value) => controller.configName = value!
                           )
                         )
                       ),
@@ -258,12 +256,12 @@ class EditConfigScreen extends StatelessWidget {
                       DefaultMaterialButton(
                         text: "Save configuration",
                         onPressed: () async {
-                          if (formKey.currentState.validate() && controller.isLocationSet){
-                            formKey.currentState.save();
+                          if (formKey.currentState!.validate() && controller.isLocationSet){
+                            formKey.currentState?.save();
 
                             final Config newConfig = Config(
                               id: config.id,
-                              location: controller.location,
+                              location: controller.location!,
                               method: controller.configMethod,
                               school: controller.configSchool,
                               isDefault: config.isDefault,

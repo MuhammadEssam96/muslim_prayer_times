@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:location_permissions/location_permissions.dart';
+import 'package:location/location.dart' show PermissionStatus;
 
 import '../../controllers/location_controller.dart';
 import 'material_button.dart';
-
-//ignore_for_file: lines_longer_than_80_chars
 
 class RequestLocationPermissionWidgets extends StatelessWidget {
   final PermissionStatus permissionStatus;
   const RequestLocationPermissionWidgets(this.permissionStatus);
 
   List<Widget> getTextWidget(PermissionStatus permissionStatus){
-    if(permissionStatus == PermissionStatus.unknown) {
+    if(permissionStatus == PermissionStatus.deniedForever) {
       return const [
         Text(
           "Location permission status is unknown..",
@@ -89,13 +87,16 @@ class RequestLocationPermissionWidgets extends StatelessWidget {
           onPressed: () async => locationController.requestLocationPermission()
         ),
         const SizedBox(height: 8.0),
-        FlatButton(
-          height: 48.0,
-          minWidth: Get.width * 0.50,
-          onPressed: () => Get.back(),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(48.0)
+        TextButton(
+          style: ButtonStyle(
+            minimumSize: MaterialStateProperty.all<Size>(Size(Get.size.width * 0.50, 48)),
+            shape: MaterialStateProperty.all<OutlinedBorder?>(
+              RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(48)
+              )
+            )
           ),
+          onPressed: () => Get.back(),
           child: const Text("Cancel")
         )
       ]

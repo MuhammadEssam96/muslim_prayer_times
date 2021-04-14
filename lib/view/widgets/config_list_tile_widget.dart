@@ -6,8 +6,6 @@ import '../../models/config_model.dart';
 import '../constants/colors.dart';
 import '../screens/edit_config_screen.dart';
 
-//ignore_for_file: lines_longer_than_80_chars
-
 class ConfigurationListTileWidget extends StatelessWidget {
   final Config config;
   const ConfigurationListTileWidget(this.config);
@@ -49,7 +47,7 @@ class ConfigurationListTileWidget extends StatelessWidget {
                     duration: const Duration(seconds: 2)
                   );
                 } else {
-                  return configsController.deleteConfig(config);
+                  configsController.deleteConfig(config);
                 }
               }
             )

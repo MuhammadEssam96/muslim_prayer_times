@@ -41,6 +41,9 @@ class NotificationOptionsAdapter extends TypeAdapter<NotificationOptions> {
 
   @override
   bool operator ==(Object other) {
-    return identical(this, other) || other is NotificationOptionsAdapter && runtimeType == other.runtimeType && typeId == other.typeId;
+    return identical(this, other)
+        || other is NotificationOptionsAdapter
+            && runtimeType == other.runtimeType
+            && typeId == other.typeId;
   }
 }
